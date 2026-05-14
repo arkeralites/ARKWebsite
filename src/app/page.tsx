@@ -267,7 +267,7 @@ export default function HomePage() {
             <SectionHeader
               label="For Newcomers"
               title="New to Norway? We've got you."
-              intro="Moving to a new country is hard. ARK members have been through it — the paperwork, the weather, the bureaucracy. We've put together a practical guide covering healthcare, housing, NAV, schools, banking, and more."
+              intro="Moving to a new country is hard. ARK members have been through it. We've put together a practical guide covering healthcare, housing, NAV, schools, banking, and more."
               center
             />
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">

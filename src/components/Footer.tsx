@@ -87,7 +87,7 @@ export default function Footer() {
                 arkeralites@gmail.com
               </a>
             </li>
-            <li className="text-white/65">Stavanger &amp; Sandnes, Rogaland, Norway</li>
+            <li className="text-white/65">Rogaland, Norway</li>
           </ul>
 
           {/* Social icons */}

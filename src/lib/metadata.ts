@@ -8,7 +8,7 @@ export const siteConfig = {
   ogImage: 'https://kerala.no/images/arklogo.jpg',
   contact: {
     email: 'arkeralites@gmail.com',
-    location: 'Stavanger & Sandnes, Rogaland, Norway',
+    location: 'Sandnes, Rogaland, Norway',
     orgNumber: '919 226 447',
   },
   social: {
