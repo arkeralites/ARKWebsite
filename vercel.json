@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.kerala.no" }],
+      "destination": "https://kerala.no/:path*",
+      "permanent": true
+    }
+  ]
+}

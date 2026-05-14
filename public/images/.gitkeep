@@ -1,0 +1,12 @@
+# Place your images here
+#
+# Recommended images to add:
+#   - ark-logo.png        (square logo for navbar/footer, ideally 200x200px)
+#   - og-image.png        (Open Graph social share image, 1200x630px)
+#   - hero-bg.jpg         (optional hero background, 1920x1080px)
+#   - onam-2026.jpg       (event photo for Onam)
+#   - kids-day-2026.jpg   (event photo for Kids Day)
+#   - christmas-2026.jpg  (event photo for Christmas)
+#
+# After adding images, reference them in components using:
+#   <Image src="/images/filename.jpg" alt="..." width={...} height={...} />
