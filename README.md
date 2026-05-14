@@ -158,8 +158,8 @@ Keep this section updated with the correct login details.
 |---|--------------------------------------------------------------------------------------------------------------------|
 | **GitHub** | [github.com/arkeralites/ARKWebsite](https://github.com/arkeralites/ARKWebsite) — owner: `arkeralites`              |
 | **Vercel** | [vercel.com](https://vercel.com) — https://vercel.com/arkeralites-projects/ark-website-main — owner: `arkeralites` |
-| **Domain Registrar** | *(https://www.one.com/admin/frontpage.do?locale=en)* — domain: kerala.no login with `arkeralites@gmail.com` |
-| **Google Account** | arkeralites@gmail.com — *(password kept by committee)*                                                             |
+| **Domain Registrar** | One.com — domain: `kerala.no` — access managed by current committee |
+| **Google Account** | `arkeralites@gmail.com` — access managed by current committee |
 
 ### If something breaks
 
