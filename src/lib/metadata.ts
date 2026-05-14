@@ -8,12 +8,14 @@ export const siteConfig = {
   ogImage: 'https://kerala.no/images/arklogo.jpg',
   contact: {
     email: 'arkeralites@gmail.com',
-    location: 'Stavanger & Sandnes, Rogaland, Norway',
+    location: 'Sandnes, Rogaland, Norway',
     orgNumber: '919 226 447',
   },
   social: {
     facebookGroupUrl: 'https://www.facebook.com/groups/773186669487656',
     instagramUrl: 'https://www.instagram.com/ark_norway',
+    whatsappUrl:
+      'mailto:arkeralites@gmail.com?subject=Join%20ARK%20WhatsApp%20Community&body=Hi%20ARK%2C%0A%0AI%20would%20like%20to%20join%20the%20ARK%20WhatsApp%20community%20group.%0A',
     youtubeUrl: 'https://www.youtube.com/@RogalandKeralites',
   },
 } as const
