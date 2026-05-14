@@ -154,12 +154,12 @@ Note: production builds also regenerate the sitemap and `robots.txt` automatical
 
 Keep this section updated with the correct login details.
 
-| Service | Login / Details |
-|---|---|
-| **GitHub** | [github.com](https://github.com) — *(add username here)* |
-| **Vercel** | [vercel.com](https://vercel.com) — *(ARK-owned login email here)* |
-| **Domain Registrar** | *(add registrar name and login here)* — domain: kerala.no |
-| **Google Account** | arkeralites@gmail.com — *(password kept by committee)* |
+| Service | Login / Details                                                                                                    |
+|---|--------------------------------------------------------------------------------------------------------------------|
+| **GitHub** | [github.com/arkeralites/ARKWebsite](https://github.com/arkeralites/ARKWebsite) — owner: `arkeralites`              |
+| **Vercel** | [vercel.com](https://vercel.com) — https://vercel.com/arkeralites-projects/ark-website-main — owner: `arkeralites` |
+| **Domain Registrar** | *(https://www.one.com/admin/frontpage.do?locale=en)* — domain: kerala.no login with `arkeralites@gmail.com` |
+| **Google Account** | arkeralites@gmail.com — *(password kept by committee)*                                                             |
 
 ### If something breaks
 
