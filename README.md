@@ -136,13 +136,17 @@ Avoid changing anything else in that file unless a developer has asked you to.
 
 ### How deployment works
 
-This site uses **automatic deployment** via Vercel:
+This site uses **automatic deployment** via **GitHub Actions + ARK-owned Vercel credentials**:
 
-1. Any change pushed (or committed directly on GitHub) to the `main` branch automatically triggers a new deployment
-2. Vercel builds the site and publishes it to [kerala.no](https://kerala.no) within 2–3 minutes
-3. You can monitor deployments at [vercel.com](https://vercel.com) (login details below)
+1. A change is pushed (or committed directly on GitHub) to the `main` branch
+2. GitHub Actions runs the workflow in `.github/workflows/vercel-deploy.yml`
+3. That workflow uses ARK's Vercel token and project details stored in GitHub Secrets
+4. Vercel builds the site and publishes it to [kerala.no](https://kerala.no) within 2–3 minutes
+5. You can monitor deployments at [vercel.com](https://vercel.com) (login details below)
 
-**You do not need to do anything manually** — adding a file on GitHub is enough.
+**You do not need to do anything manually** — adding a file on GitHub is still enough.
+
+This setup is important because contributors can keep using their own GitHub accounts, while the deployment remains owned by ARK's Vercel account.
 
 Note: production builds also regenerate the sitemap and `robots.txt` automatically.
 
@@ -153,7 +157,7 @@ Keep this section updated with the correct login details.
 | Service | Login / Details |
 |---|---|
 | **GitHub** | [github.com](https://github.com) — *(add username here)* |
-| **Vercel** | [vercel.com](https://vercel.com) — *(add login email here)* |
+| **Vercel** | [vercel.com](https://vercel.com) — *(ARK-owned login email here)* |
 | **Domain Registrar** | *(add registrar name and login here)* — domain: kerala.no |
 | **Google Account** | arkeralites@gmail.com — *(password kept by committee)* |
 
@@ -202,7 +206,7 @@ If you ever need to change the contact email, update `siteConfig.contact.email` 
 - **Fonts:** Cormorant Garamond (serif) + DM Sans (body) via Google Fonts
 - **Events:** Markdown files parsed with gray-matter, rendered with next-mdx-remote
 - **Sitemap:** Generated automatically by next-sitemap after each build
-- **Hosting:** Vercel (automatic deployment from GitHub)
+- **Hosting:** Vercel (automatic deployment triggered from GitHub Actions)
 - **Contact:** Email button using the visitor's default mail app (`mailto:`)
 
 ### Local development
@@ -229,4 +233,6 @@ npm run lint
 - `npm run lint` uses the ESLint CLI (`eslint .`) with the flat config in `eslint.config.mjs`.
 - `npm run build` currently runs `next build --webpack` for the most reliable production build on this setup.
 - Generated files such as `.next/`, `public/sitemap.xml`, `public/sitemap-0.xml`, and `public/robots.txt` should not be edited manually.
+- For free multi-maintainer deployment, ARK owns the Vercel project and a GitHub Actions workflow deploys using ARK-owned Vercel credentials stored as GitHub Secrets. This avoids the Vercel error that says the Git author must have direct project access.
+- Setup and yearly handover notes are documented in `docs/deployment-handover.md`.
 
