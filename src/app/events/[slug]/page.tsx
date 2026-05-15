@@ -2,8 +2,15 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import { formatEventDate, getAllEvents, getEventBySlug } from '@/lib/events'
+import {
+  formatEventDateForLocale,
+  formatEventMonthForLocale,
+  getAllEvents,
+  getEventBySlug,
+  getLocalizedEventCategory,
+} from '@/lib/events'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
+import { getRequestI18n } from '@/lib/i18n-server'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -15,10 +22,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { locale } = await getRequestI18n()
   const { slug } = await params
   const event = getEventBySlug(slug)
   if (!event) return {}
-  return generatePageMetadata(event.title, event.excerpt, `/events/${slug}`)
+  return generatePageMetadata(event.title, event.excerpt, `/events/${slug}`, locale)
 }
 
 const categoryColors: Record<string, string> = {
@@ -30,17 +38,21 @@ const categoryColors: Record<string, string> = {
 }
 
 export default async function EventDetailPage({ params }: PageProps) {
+  const { locale, messages } = await getRequestI18n()
+  const { eventDetail, common } = messages
   const { slug } = await params
   const event = getEventBySlug(slug)
   if (!event) notFound()
 
-  const { title, date, month, venue, category, excerpt, content } = event
+  const { title, date, venue, category, excerpt, content } = event
   const badgeClass = categoryColors[category] ?? 'bg-gray-100 text-gray-700'
+  const month = formatEventMonthForLocale(date, locale)
+  const localizedCategory = getLocalizedEventCategory(category, locale, common.categories, common.unknownCategory)
 
   return (
     <main className="pt-16">
       {/* Event Hero */}
-      <section className="page-hero px-4" aria-label={`Event: ${title}`}>
+      <section className="page-hero px-4" aria-label={`${eventDetail.heroPrefix}: ${title}`}>
         <div className="max-w-4xl mx-auto">
           {/* Back link */}
           <Link
@@ -52,7 +64,7 @@ export default async function EventDetailPage({ params }: PageProps) {
               <line x1="19" y1="12" x2="5" y2="12"/>
               <polyline points="12 19 5 12 12 5"/>
             </svg>
-            All Events
+            {eventDetail.allEvents}
           </Link>
 
           {/* Category + month */}
@@ -64,7 +76,7 @@ export default async function EventDetailPage({ params }: PageProps) {
               {month}
             </span>
             <span className={`px-3 py-1 rounded-full text-xs font-medium ${badgeClass}`}>
-              {category}
+              {localizedCategory}
             </span>
           </div>
 
@@ -82,7 +94,7 @@ export default async function EventDetailPage({ params }: PageProps) {
                 <line x1="8" y1="2" x2="8" y2="6"/>
                 <line x1="3" y1="10" x2="21" y2="10"/>
               </svg>
-              {formatEventDate(date)}
+              {formatEventDateForLocale(date, locale)}
             </span>
             <span className="flex items-center gap-2">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
@@ -102,7 +114,7 @@ export default async function EventDetailPage({ params }: PageProps) {
       <section
         className="py-16 px-4"
         style={{ backgroundColor: '#f5f0e8' }}
-        aria-label="Event details"
+        aria-label={eventDetail.content}
       >
         <div className="max-w-3xl mx-auto">
           <article className="bg-white rounded-2xl shadow-sm border p-8 md:p-12" style={{ borderColor: '#e8e0d4' }}>
@@ -122,14 +134,14 @@ export default async function EventDetailPage({ params }: PageProps) {
                 <line x1="19" y1="12" x2="5" y2="12"/>
                 <polyline points="12 19 5 12 12 5"/>
               </svg>
-              Back to all events
+                  {eventDetail.backToAllEvents}
             </Link>
             <a
               href={`mailto:${siteConfig.contact.email}`}
               className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:underline underline-offset-2"
               style={{ color: '#3a6b8a' }}
             >
-              Questions? Email us
+              {eventDetail.questionsEmailUs}
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                 <polyline points="22,6 12,13 2,6"/>

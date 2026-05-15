@@ -1,3 +1,5 @@
+import type { Locale } from './i18n'
+
 // ─── Committee Data ──────────────────────────────────────────────────────────
 // To update: edit the name/role fields below and commit the file.
 // No other changes needed — the page rebuilds automatically on Vercel.
@@ -34,6 +36,25 @@ export function getCommitteeTermLabel(date = new Date()): string {
   const startYear = month >= COMMITTEE_TERM_ROLLOVER_MONTH ? year : year - 1
 
   return `${startYear}/${startYear + 1}`
+}
+
+export function getLocalizedCommitteeRole(role: string, locale: Locale): string {
+  const roleMap: Record<string, Record<Locale, string>> = {
+    Styreleder: {
+      en: 'Chairperson',
+      no: 'Styreleder',
+    },
+    Nesteleder: {
+      en: 'Vice Chair',
+      no: 'Nestleder',
+    },
+    'Committee Member': {
+      en: 'Committee Member',
+      no: 'Komitémedlem',
+    },
+  }
+
+  return roleMap[role]?.[locale] ?? role
 }
 
 // // Deputy / substitute members (optional — remove array entries if not needed)

@@ -1,6 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
+import type { Locale } from './i18n'
+import { getDateLocale } from './i18n'
 
 const EVENTS_DIR = path.join(process.cwd(), 'content', 'events')
 
@@ -31,6 +33,36 @@ export function formatEventDate(dateString: string): string {
     year: 'numeric',
     timeZone: 'UTC',
   })
+}
+
+export function formatEventDateForLocale(dateString: string, locale: Locale): string {
+  return parseEventDate(dateString).toLocaleDateString(getDateLocale(locale), {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
+
+export function formatEventMonthForLocale(dateString: string, locale: Locale): string {
+  return parseEventDate(dateString).toLocaleDateString(getDateLocale(locale), {
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC',
+  })
+}
+
+export function getLocalizedEventCategory(
+  category: string,
+  locale: Locale,
+  categories: Record<string, string>,
+  fallback: string
+): string {
+  if (locale === 'en') {
+    return category
+  }
+
+  return categories[category] ?? fallback
 }
 
 export function getAllEvents(): ARKEvent[] {

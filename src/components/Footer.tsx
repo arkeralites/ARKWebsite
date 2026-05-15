@@ -1,21 +1,52 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { socialLinks } from '@/lib/social-links'
+import { siteConfig } from '@/lib/metadata'
+import { socialLinkDefinitions, type SocialLinkKey } from '@/lib/social-links'
 
-const quickLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About ARK' },
-  { href: '/events', label: 'Events' },
-  { href: '/norway', label: 'New to Norway' },
-  { href: '/contact', label: 'Contact' },
-]
+interface SocialLinkMessage {
+  label: string
+  ariaLabel: string
+}
 
-export default function Footer() {
+interface FooterMessages {
+  quickLinks: string
+  getInTouch: string
+  ariaLabel: string
+  logoAlt: string
+  brandSubtitle: string
+  brandDescription: string
+  contactLocation: string
+  builtWith: string
+  rights: string
+  orgNumberLabel: string
+  links: {
+    home: string
+    about: string
+    events: string
+    norway: string
+    contact: string
+  }
+}
+
+interface FooterProps {
+  footerMessages: FooterMessages
+  socialMessages: Record<SocialLinkKey, SocialLinkMessage>
+}
+
+export default function Footer({ footerMessages, socialMessages }: FooterProps) {
+  const quickLinks = [
+    { href: '/', label: footerMessages.links.home },
+    { href: '/about', label: footerMessages.links.about },
+    { href: '/events', label: footerMessages.links.events },
+    { href: '/norway', label: footerMessages.links.norway },
+    { href: '/contact', label: footerMessages.links.contact },
+  ]
+
   return (
     <footer
       className="text-white/75"
       style={{ backgroundColor: '#1a3a2a' }}
-      aria-label="Site footer"
+      aria-label={footerMessages.ariaLabel}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Column 1 — Brand */}
@@ -27,7 +58,7 @@ export default function Footer() {
             >
               <Image
                   src="/images/arklogo.jpg"
-                  alt="ARK logo"
+                  alt={footerMessages.logoAlt}
                   fill
                   sizes="75px"
                   className="object-contain"
@@ -36,16 +67,15 @@ export default function Footer() {
             <div>
               <div className="font-serif text-white text-xl font-semibold leading-tight">ARK</div>
               <div className="text-[11px] text-[#e8b84b] tracking-widest uppercase">
-                Association of Rogaland Keralites
+                {footerMessages.brandSubtitle}
               </div>
             </div>
           </div>
           <p className="text-sm leading-relaxed text-white/60 max-w-xs">
-            Bringing the spirit of God&apos;s Own Country to Fjord&apos;s Own Country since 2009.
-            A community of Keralites united in culture, friendship, and support.
+            {footerMessages.brandDescription}
           </p>
           <p className="text-xs text-white/40 mt-4">
-            Org.nr: 919 226 447
+            {footerMessages.orgNumberLabel}: {siteConfig.contact.orgNumber}
           </p>
         </div>
 
@@ -55,7 +85,7 @@ export default function Footer() {
             className="text-[11px] uppercase tracking-widest mb-5 font-semibold"
             style={{ color: '#e8b84b' }}
           >
-            Quick Links
+            {footerMessages.quickLinks}
           </h3>
           <ul className="space-y-2">
             {quickLinks.map(({ href, label }) => (
@@ -77,29 +107,32 @@ export default function Footer() {
             className="text-[11px] uppercase tracking-widest mb-5 font-semibold"
             style={{ color: '#e8b84b' }}
           >
-            Get in Touch
+            {footerMessages.getInTouch}
           </h3>
           <ul className="space-y-3 text-sm">
             <li>
               <a
-                href="mailto:arkeralites@gmail.com"
+                href={`mailto:${siteConfig.contact.email}`}
                 className="text-white/65 hover:text-[#e8b84b] transition-colors"
               >
-                arkeralites@gmail.com
+                {siteConfig.contact.email}
               </a>
             </li>
-            <li className="text-white/65">Rogaland, Norway</li>
+            <li className="text-white/65">{footerMessages.contactLocation}</li>
           </ul>
 
           {/* Social icons */}
           <div className="flex gap-4 mt-6">
-            {socialLinks.map(({ label, href, iconSrc, ariaLabel }) => (
+            {socialLinkDefinitions.map(({ key, href, iconSrc }) => {
+              const social = socialMessages[key]
+
+              return (
               <a
-                key={label}
+                key={key}
                 href={href}
                 target={href.startsWith('mailto:') ? undefined : '_blank'}
                 rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                aria-label={ariaLabel}
+                aria-label={social.ariaLabel}
                 className="w-11 h-11 rounded-full flex items-center justify-center shadow-sm transition-all duration-200 hover:-translate-y-0.5"
               >
                 <Image
@@ -111,7 +144,8 @@ export default function Footer() {
                   aria-hidden="true"
                 />
               </a>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
@@ -119,8 +153,8 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/35">
-          <p>© {new Date().getFullYear()} ARK — Association of Rogaland Keralites</p>
-          <p>Built with ❤️ for the Kerala community in Rogaland</p>
+          <p>© {new Date().getFullYear()} {footerMessages.rights}</p>
+          <p>{footerMessages.builtWith}</p>
         </div>
       </div>
     </footer>

@@ -1,9 +1,14 @@
 //import Link from 'next/link'
 import type { ARKEvent } from '@/lib/events'
+import type { Locale } from '@/lib/i18n'
+import { formatEventMonthForLocale, getLocalizedEventCategory } from '@/lib/events'
 
 interface EventCardProps {
   event: ARKEvent
   muted?: boolean
+  locale: Locale
+  categoryLabels: Record<string, string>
+  categoryFallback: string
 }
 
 const categoryColors: Record<string, string> = {
@@ -14,9 +19,17 @@ const categoryColors: Record<string, string> = {
   Community: 'bg-orange-100 text-orange-800',
 }
 
-export default function EventCard({ event, muted = false }: EventCardProps) {
-  const { title, month, venue, category, excerpt } = event
+export default function EventCard({
+  event,
+  muted = false,
+  locale,
+  categoryLabels,
+  categoryFallback,
+}: EventCardProps) {
+  const { title, date, venue, category, excerpt } = event
   const badgeClass = categoryColors[category] ?? 'bg-gray-100 text-gray-700'
+  const month = formatEventMonthForLocale(date, locale)
+  const localizedCategory = getLocalizedEventCategory(category, locale, categoryLabels, categoryFallback)
 
   return (
     <article
@@ -37,7 +50,7 @@ export default function EventCard({ event, muted = false }: EventCardProps) {
       <div className="p-6 flex flex-col flex-1">
         {/* Category badge */}
         <span className={`inline-block self-start text-xs font-medium rounded-full px-3 py-1 mb-3 ${badgeClass}`}>
-          {category}
+          {localizedCategory}
         </span>
 
         {/* Title */}

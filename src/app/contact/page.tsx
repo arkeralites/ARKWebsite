@@ -1,26 +1,36 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
-import { socialLinks } from '@/lib/social-links'
+import { getRequestI18n } from '@/lib/i18n-server'
+import { socialLinkDefinitions } from '@/lib/social-links'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
 import EmailContactCard from '../../components/EmailContactCard'
 
-export const metadata: Metadata = generatePageMetadata(
-  'Contact',
-  'Get in touch with ARK — Association of Rogaland Keralites. Join our community, ask about events, or get help settling in Norway.',
-  '/contact'
-)
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, messages } = await getRequestI18n()
 
-const contactDetails = [
-  {
+  return generatePageMetadata(
+    messages.seo.pages.contact.title,
+    messages.seo.pages.contact.description,
+    '/contact',
+    locale
+  )
+}
+
+export default async function ContactPage() {
+  const { messages } = await getRequestI18n()
+  const { contact, emailCard, common } = messages
+
+  const contactDetails = [
+    {
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
         <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
         <polyline points="22,6 12,13 2,6"/>
       </svg>
     ),
-    label: 'Email',
+    label: contact.detailLabels.email,
     value: siteConfig.contact.email,
     href: `mailto:${siteConfig.contact.email}`,
   },
@@ -41,7 +51,7 @@ const contactDetails = [
         <circle cx="12" cy="10" r="3"/>
       </svg>
     ),
-    label: 'Location',
+    label: contact.detailLabels.location,
     value: siteConfig.contact.location,
     href: null,
   },
@@ -52,27 +62,25 @@ const contactDetails = [
         <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
       </svg>
     ),
-    label: 'Org. number',
+    label: contact.detailLabels.orgNumber,
     value: siteConfig.contact.orgNumber,
     href: null,
   },
-]
+  ]
 
-export default function ContactPage() {
   return (
     <main className="pt-16">
       {/* Page Hero */}
-      <section className="page-hero px-4 text-center" aria-label="Contact hero">
+      <section className="page-hero px-4 text-center" aria-label={contact.aria.hero}>
         <div className="max-w-3xl mx-auto">
           <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{ color: '#c8922a' }}>
-            Get in Touch
+            {contact.heroLabel}
           </span>
           <h1 className="font-serif text-5xl md:text-6xl font-semibold text-white mt-3 leading-tight">
-            We&apos;d love to hear from you
+            {contact.heroTitle}
           </h1>
           <p className="text-white/65 text-lg mt-4 leading-relaxed">
-            Whether you want to join ARK, ask about events, or just need someone to help
-            you navigate Norway — we&apos;re here.
+            {contact.heroText}
           </p>
         </div>
       </section>
@@ -81,14 +89,14 @@ export default function ContactPage() {
       <section
         className="py-20 px-4"
         style={{ backgroundColor: '#f5f0e8' }}
-        aria-label="Contact details"
+        aria-label={contact.aria.details}
       >
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left — contact details */}
           <AnimateOnScroll>
             <SectionHeader
-              label="Contact ARK"
-              title="Reach us directly"
+              label={contact.sectionLabel}
+              title={contact.sectionTitle}
             />
 
             <ul className="mt-8 space-y-5">
@@ -123,15 +131,15 @@ export default function ContactPage() {
 
             {/* Social links */}
             <div className="mt-10">
-              <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-4">Follow ARK</h3>
+              <h3 className="text-xs uppercase tracking-widest text-gray-400 mb-4">{contact.followTitle}</h3>
               <div className="flex gap-4">
-                {socialLinks.map(({ label, href, iconSrc, ariaLabel }) => (
+                {socialLinkDefinitions.map(({ key, href, iconSrc }) => (
                   <a
-                    key={label}
+                    key={key}
                     href={href}
                     target={href.startsWith('mailto:') ? undefined : '_blank'}
                     rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                    aria-label={ariaLabel}
+                    aria-label={common.socialLinks[key].ariaLabel}
                     className="w-11 h-11 rounded-xl flex items-center justify-center shadow-sm transition-all duration-200 hover:-translate-y-0.5"
                   >
                     <Image
@@ -153,12 +161,14 @@ export default function ContactPage() {
               style={{ backgroundColor: 'rgba(26,58,42,0.04)', borderColor: '#d4c8b4' }}
             >
               <p className="text-sm text-gray-600 leading-relaxed">
-                ARK is a registered non-profit organisation in Norway.
+                {contact.orgText}
                 <br />
-                <strong style={{ color: '#1a3a2a' }}>Org.nr: {siteConfig.contact.orgNumber}</strong>
+                <strong style={{ color: '#1a3a2a' }}>
+                  {contact.detailLabels.orgNumber}: {siteConfig.contact.orgNumber}
+                </strong>
               </p>
               <p className="text-sm text-gray-500 mt-2">
-                Membership is open to all Keralites living in Rogaland and their families.
+                {contact.memberText}
               </p>
             </div>
           </AnimateOnScroll>
@@ -170,9 +180,14 @@ export default function ContactPage() {
               style={{ borderColor: '#e8e0d4' }}
             >
               <h2 className="font-serif text-2xl font-semibold mb-6" style={{ color: '#1a3a2a' }}>
-                Email us directly
+                {contact.emailUsTitle}
               </h2>
-              <EmailContactCard />
+              <EmailContactCard
+                intro={emailCard.intro}
+                buttonLabel={emailCard.button}
+                directPrefix={emailCard.directPrefix}
+                subject={emailCard.subject}
+              />
             </div>
           </AnimateOnScroll>
         </div>

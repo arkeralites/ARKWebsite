@@ -4,19 +4,44 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import type { Locale } from '@/lib/i18n'
 
-const navLinks = [
-  { href: '/about', label: 'About' },
-  { href: '/events', label: 'Events' },
-  { href: '/norway', label: 'New to Norway' },
-  { href: '/committee', label: 'Committee' },
-  { href: '/contact', label: 'Contact' },
-]
+interface NavMessages {
+  links: {
+    about: string
+    events: string
+    norway: string
+    committee: string
+    contact: string
+  }
+  joinArk: string
+  openMenu: string
+  closeMenu: string
+  homeAria: string
+  languageLabel: string
+  shortLabels: Record<Locale, string>
+  mainNavigationAria: string
+  logoAlt: string
+}
 
-export default function Nav() {
+interface NavProps {
+  locale: Locale
+  navMessages: NavMessages
+}
+
+export default function Nav({ locale, navMessages }: NavProps) {
   const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const navLinks = [
+    { href: '/about', label: navMessages.links.about },
+    { href: '/events', label: navMessages.links.events },
+    { href: '/norway', label: navMessages.links.norway },
+    { href: '/committee', label: navMessages.links.committee },
+    { href: '/contact', label: navMessages.links.contact },
+  ]
 
   // Shadow on scroll
   useEffect(() => {
@@ -40,13 +65,13 @@ export default function Nav() {
     >
       <nav
         className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-20"
-        aria-label="Main navigation"
+        aria-label={navMessages.mainNavigationAria}
       >
         {/* Logo */}
         <Link
           href="/"
           className="flex items-center gap-3 group focus-visible:outline-none"
-          aria-label="ARK — Association of Rogaland Keralites, go to homepage"
+          aria-label={navMessages.homeAria}
           onClick={() => setIsOpen(false)}
         >
           <div
@@ -55,7 +80,7 @@ export default function Nav() {
           >
             <Image
               src="/images/arklogo.jpg"
-              alt="ARK logo"
+              alt={navMessages.logoAlt}
               fill
               sizes="75px"
               className="object-contain"
@@ -92,19 +117,26 @@ export default function Nav() {
             className="ml-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-150 hover:opacity-90 active:scale-95"
             style={{ backgroundColor: '#c8922a', color: '#fff' }}
           >
-            Join ARK
+            {navMessages.joinArk}
           </Link>
+          <div className="ml-3">
+            <LanguageSwitcher
+              locale={locale}
+              label={navMessages.languageLabel}
+              shortLabels={navMessages.shortLabels}
+            />
+          </div>
         </div>
 
         {/* Mobile hamburger */}
         <button
           className="md:hidden p-3 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
           onClick={() => setIsOpen((v) => !v)}
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-label={isOpen ? navMessages.closeMenu : navMessages.openMenu}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
         >
-          <span className="sr-only">{isOpen ? 'Close menu' : 'Open menu'}</span>
+          <span className="sr-only">{isOpen ? navMessages.closeMenu : navMessages.openMenu}</span>
           {isOpen ? (
             // X icon
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
@@ -129,6 +161,13 @@ export default function Nav() {
           className="md:hidden px-4 pb-6 pt-2 flex flex-col gap-1"
           style={{ backgroundColor: 'rgba(26, 58, 42, 0.98)' }}
         >
+          <div className="mb-3 flex justify-end">
+            <LanguageSwitcher
+              locale={locale}
+              label={navMessages.languageLabel}
+              shortLabels={navMessages.shortLabels}
+            />
+          </div>
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href
             return (
@@ -152,7 +191,7 @@ export default function Nav() {
             className="mt-3 px-4 py-3 rounded-lg text-lg font-semibold text-center transition-all hover:opacity-90"
             style={{ backgroundColor: '#c8922a', color: '#fff' }}
           >
-            Join ARK
+            {navMessages.joinArk}
           </Link>
         </div>
       )}

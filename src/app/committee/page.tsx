@@ -5,17 +5,25 @@ import {
   generalMembers,
   getCommitteeTermLabel,
   getInitials,
+  getLocalizedCommitteeRole,
   type CommitteeMember,
 } from '@/lib/committee'
+import type { Locale } from '@/lib/i18n'
+import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
 import Link from 'next/link'
 
-export const metadata: Metadata = generatePageMetadata(
-  'Committee',
-  'Meet the ARK committee — the volunteers who organise events, support newcomers, and keep the Kerala community in Rogaland thriving.',
-  '/committee'
-)
+export async function generateMetadata(): Promise<Metadata> {
+  const { locale, messages } = await getRequestI18n()
+
+  return generatePageMetadata(
+    messages.seo.pages.committee.title,
+    messages.seo.pages.committee.description,
+    '/committee',
+    locale
+  )
+}
 
 export const revalidate = 86400
 
@@ -28,21 +36,15 @@ const avatarColours = [
   { bg: '#e8b84b', text: '#1a3a2a' },   // light gold
 ]
 
-const committeeHighlights = [
-  'Organise ARK festivals, family gatherings, and cultural celebrations throughout the year.',
-  'Support newcomers settling in Rogaland with practical guidance and community connections.',
-  'Coordinate volunteers, communication, and planning for community activities.',
-  'Promote Kerala culture, language, and traditions for families growing up in Norway.',
-  'Strengthen friendships and belonging among Keralites across Stavanger, Sandnes, and the wider region.',
-]
-
 function MemberCard({
   member,
   index,
+  locale,
   large = false,
 }: {
   member: CommitteeMember
   index: number
+  locale: Locale
   large?: boolean
 }) {
   const colour = avatarColours[index % avatarColours.length]
@@ -79,32 +81,33 @@ function MemberCard({
         className="mt-2 text-sm font-medium px-3 py-1 rounded-full"
         style={{ backgroundColor: 'rgba(200,146,42,0.1)', color: '#c8922a' }}
       >
-        {member.role}
+        {getLocalizedCommitteeRole(member.role, locale)}
       </span>
     </div>
   )
 }
 
-export default function CommitteePage() {
+export default async function CommitteePage() {
+  const { messages, locale } = await getRequestI18n()
+  const { committee } = messages
   const committeeTermLabel = getCommitteeTermLabel()
 
   return (
     <main className="pt-16">
       {/* Page Hero */}
-      <section className="page-hero px-4 text-center" aria-label="Committee page hero">
+      <section className="page-hero px-4 text-center" aria-label={committee.aria.hero}>
         <div className="max-w-3xl mx-auto">
           <span
             className="text-xs uppercase tracking-[0.2em] font-semibold"
             style={{ color: '#c8922a' }}
           >
-            ARK Leadership
+            {committee.heroLabel}
           </span>
           <h1 className="font-serif text-5xl md:text-6xl font-semibold text-white mt-3 leading-tight">
-            Meet the Committee
+            {committee.heroTitle}
           </h1>
           <p className="text-white/65 text-lg mt-4 leading-relaxed max-w-2xl mx-auto">
-            ARK is run entirely by volunteers from the Kerala community in Rogaland.
-            These are the people who give their time to keep the community together.
+            {committee.heroText}
           </p>
         </div>
       </section>
@@ -113,14 +116,14 @@ export default function CommitteePage() {
       <section
         className="py-20 px-4"
         style={{ backgroundColor: '#f5f0e8' }}
-        aria-label="Executive committee"
+        aria-label={committee.aria.executive}
       >
         <div className="max-w-5xl mx-auto">
           <AnimateOnScroll>
             <SectionHeader
-              label="Executive Board"
-              title="Office Bearers"
-              intro="The elected officers who lead ARK and are responsible for the organisation's activities and governance."
+              label={committee.executiveLabel}
+              title={committee.executiveTitle}
+              intro={committee.executiveIntro}
               center
             />
           </AnimateOnScroll>
@@ -128,7 +131,7 @@ export default function CommitteePage() {
           <AnimateOnScroll stagger>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 max-w-3xl mx-auto">
               {executiveMembers.map((member, i) => (
-                <MemberCard key={i} member={member} index={i} large />
+                <MemberCard key={i} member={member} index={i} locale={locale} large />
               ))}
             </div>
           </AnimateOnScroll>
@@ -140,14 +143,14 @@ export default function CommitteePage() {
         <section
           className="py-16 px-4"
           style={{ backgroundColor: '#ede8e0' }}
-          aria-label="General committee members"
+          aria-label={committee.aria.members}
         >
           <div className="max-w-4xl mx-auto">
             <AnimateOnScroll>
               <SectionHeader
-                label="Committee"
-                title="Committee Members"
-                intro="Volunteers who support the executive board in organising events and community activities."
+                  label={committee.membersLabel}
+                  title={committee.membersTitle}
+                  intro={committee.membersIntro}
                 center
               />
               <div className="mt-10 text-center">
@@ -155,7 +158,7 @@ export default function CommitteePage() {
                       className="font-serif text-2xl md:text-2xl uppercase tracking-[0.2em] font-semibold"
                       style={{ color: '#c8922a' }}
                   >
-                    ARK Committee {committeeTermLabel}
+                    {committee.termPrefix} {committeeTermLabel}
                   </span>
               </div>
             </AnimateOnScroll>
@@ -167,6 +170,7 @@ export default function CommitteePage() {
                     key={i}
                     member={member}
                     index={i + executiveMembers.length}
+                    locale={locale}
                   />
                 ))}
               </div>
@@ -182,12 +186,12 @@ export default function CommitteePage() {
                     className="font-serif text-3xl md:text-4xl font-semibold mt-3"
                     style={{ color: '#1a3a2a' }}
                   >
-                    What the committee works on
+                    {committee.workTitle}
                   </h2>
                 </div>
 
                 <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                  {committeeHighlights.map((item) => (
+                  {committee.highlights.map((item) => (
                     <li key={item} className="flex gap-3 items-start">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"
@@ -243,24 +247,24 @@ export default function CommitteePage() {
       <section
         className="py-16 px-4 text-center"
         style={{ backgroundColor: '#1a3a2a' }}
-        aria-label="Connect with the committee"
+        aria-label={committee.aria.cta}
       >
         <div className="max-w-2xl mx-auto">
           <AnimateOnScroll>
             <h2
               className="font-serif text-3xl md:text-4xl font-semibold text-white"
             >
-              Want to connect with the committee?
+              {committee.ctaTitle}
             </h2>
             <p className="text-white/60 mt-3 leading-relaxed">
-              Reach out to us for any questions or to get involved
+              {committee.ctaText}
             </p>
             <Link
               href="/contact"
               className="inline-block mt-6 px-8 py-3.5 rounded-xl font-semibold text-white transition-all hover:opacity-90"
               style={{ backgroundColor: '#c8922a' }}
             >
-              Get Involved
+              {committee.ctaButton}
             </Link>
           </AnimateOnScroll>
         </div>

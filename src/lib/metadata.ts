@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { Locale } from './i18n'
 
 export const siteConfig = {
   name: 'ARK — Association of Rogaland Keralites',
@@ -23,7 +24,8 @@ export const siteConfig = {
 export function generatePageMetadata(
   title: string,
   description: string,
-  pagePath: string
+  pagePath: string,
+  locale: Locale = 'en'
 ): Metadata {
   return {
     title,
@@ -42,7 +44,7 @@ export function generatePageMetadata(
           alt: siteConfig.name,
         },
       ],
-      locale: 'en_US',
+      locale: locale === 'no' ? 'nb_NO' : 'en_US',
       type: 'website',
     },
     twitter: {

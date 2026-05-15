@@ -1,31 +1,29 @@
 import { siteConfig } from './metadata'
 
-export const socialLinks = [
+export const socialLinkDefinitions = [
   {
-    label: 'Facebook',
+    key: 'facebook',
     href: siteConfig.social.facebookGroupUrl,
     iconSrc: '/icons/social/facebook.svg',
-    ariaLabel: 'ARK on Facebook',
   },
   {
-    label: 'Instagram',
+    key: 'instagram',
     href: siteConfig.social.instagramUrl,
     iconSrc: '/icons/social/instagram.svg',
-    ariaLabel: 'ARK on Instagram',
   },
   {
-    label: 'WhatsApp',
+    key: 'whatsapp',
     href: siteConfig.social.whatsappUrl,
     iconSrc: '/icons/social/whatsapp.svg',
-    ariaLabel: 'Join ARK on WhatsApp',
   },
   {
-    label: 'YouTube',
+    key: 'youtube',
     href: siteConfig.social.youtubeUrl,
     iconSrc: '/icons/social/youtube.svg',
-    ariaLabel: 'ARK on YouTube',
   },
 ] as const
 
-export default socialLinks
+export type SocialLinkKey = (typeof socialLinkDefinitions)[number]['key']
+
+export default socialLinkDefinitions
 
