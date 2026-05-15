@@ -243,7 +243,7 @@ export const en = {
     "pastTitle": "Where We've Been",
     "pastIntro": "A look back at ARK's events and celebrations.",
     "ctaTitle": "Never miss a beat of home.",
-    "ctaText": "JJoin our vibrant community and follow us on Facebook, Instagram, and WhatsApp to stay in the loop for every celebration, feast, and get-together!",
+    "ctaText": "Join our vibrant community and follow us on Facebook, Instagram, and WhatsApp to stay in the loop for every celebration, feast, and get-together!",
     "ctaButton": "Step Into the Community",
     "aria": {
       "hero": "Events hero",
