@@ -4,6 +4,9 @@ import type { Locale } from './i18n'
 export const siteConfig = {
   name: 'ARK — Association of Rogaland Keralites',
   url: 'https://kerala.no',
+  icon: '/favicon.ico',
+  iconPng: '/icon-512.png',
+  appleIcon: '/apple-touch-icon.png',
   description:
     'A home away from home for Keralites in Stavanger, Sandnes and Rogaland, Norway. ARK brings together the Kerala community through culture, support, and celebration.',
   ogImage: 'https://kerala.no/images/arklogo.jpg',

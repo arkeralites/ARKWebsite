@@ -31,6 +31,14 @@ export async function generateMetadata(): Promise<Metadata> {
       template: '%s | ARK Kerala Norway',
     },
     description: messages.seo.siteDescription,
+    icons: {
+      icon: [
+        { url: siteConfig.icon },
+        { url: siteConfig.iconPng, type: 'image/png', sizes: '512x512' },
+      ],
+      shortcut: [siteConfig.icon],
+      apple: [{ url: siteConfig.appleIcon, sizes: '180x180', type: 'image/png' }],
+    },
     keywords: [
       'Keralites Norway',
       'Malayalam community Stavanger',
