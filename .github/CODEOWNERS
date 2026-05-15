@@ -1,0 +1,18 @@
+# Update the owners below if the ARK maintainer account or team changes.
+# GitHub will request review from these owners on pull requests.
+
+* @arkeralites
+
+# Content and maintainer docs
+/content/ @arkeralites
+/docs/ @arkeralites
+README.md @arkeralites
+
+# App and deployment configuration
+/src/ @arkeralites
+/.github/ @arkeralites
+next.config.mjs @arkeralites
+next-sitemap.config.js @arkeralites
+package.json @arkeralites
+package-lock.json @arkeralites
+

@@ -66,15 +66,14 @@ export default async function HomePage() {
           </div>
 
           {/* Headline */}
-          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-tight mb-6">
-            {home.heroTitleTop}{' '}
-            <em className="not-italic" style={{ color: '#e8b84b' }}>
+          <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl font-semibold text-white leading-[0.95] mb-6">
+            <span className="block">{home.heroTitleTop}</span>
+            <em className="block not-italic" style={{ color: '#e8b84b' }}>
               {home.heroHighlightTop}
             </em>
-            <br />
-            {home.heroConnector}{' '}
-            <em className="not-italic" style={{ color: '#e8b84b' }}>
-              {home.heroHighlightBottom}
+            <span className="block">{home.heroConnector}</span>
+            <em className="block not-italic" style={{ color: '#e8b84b' }}>
+              {home.heroTitleBottom}
             </em>
           </h1>
 

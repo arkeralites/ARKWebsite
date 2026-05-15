@@ -32,8 +32,9 @@ interface NavProps {
 
 export default function Nav({ locale, navMessages }: NavProps) {
   const pathname = usePathname()
-  const [isOpen, setIsOpen] = useState(false)
+  const [openPathname, setOpenPathname] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
+  const isOpen = openPathname === pathname
 
   const navLinks = [
     { href: '/about', label: navMessages.links.about },
@@ -70,9 +71,9 @@ export default function Nav({ locale, navMessages }: NavProps) {
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-3 group focus-visible:outline-none"
+          className="flex items-center gap-3 rounded-xl group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]"
           aria-label={navMessages.homeAria}
-          onClick={() => setIsOpen(false)}
+          onClick={() => setOpenPathname(null)}
         >
           <div
             className="relative w-[68px] h-[68px] rounded-full overflow-hidden flex-shrink-0 border-2 transition-colors group-hover:border-[#e8b84b]"
@@ -102,11 +103,12 @@ export default function Nav({ locale, navMessages }: NavProps) {
               <Link
                 key={href}
                 href={href}
+                aria-current={isActive ? 'page' : undefined}
                 className={`px-4 py-3 rounded-md text-base font-medium transition-colors duration-150 ${
                   isActive
                     ? 'text-[#e8b84b]'
                     : 'text-white/80 hover:text-[#e8b84b] hover:bg-white/5'
-                }`}
+                } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]`}
               >
                 {label}
               </Link>
@@ -114,7 +116,8 @@ export default function Nav({ locale, navMessages }: NavProps) {
           })}
           <Link
             href="/contact"
-            className="ml-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-150 hover:opacity-90 active:scale-95"
+            aria-current={pathname === '/contact' ? 'page' : undefined}
+            className="ml-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-150 hover:opacity-90 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]"
             style={{ backgroundColor: '#c8922a', color: '#fff' }}
           >
             {navMessages.joinArk}
@@ -130,8 +133,8 @@ export default function Nav({ locale, navMessages }: NavProps) {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden p-3 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors"
-          onClick={() => setIsOpen((v) => !v)}
+          className="md:hidden p-3 rounded-lg text-white/80 hover:text-white hover:bg-white/10 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]"
+          onClick={() => setOpenPathname((current) => (current === pathname ? null : pathname))}
           aria-label={isOpen ? navMessages.closeMenu : navMessages.openMenu}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -166,6 +169,7 @@ export default function Nav({ locale, navMessages }: NavProps) {
               locale={locale}
               label={navMessages.languageLabel}
               shortLabels={navMessages.shortLabels}
+              onLocaleChange={() => setOpenPathname(null)}
             />
           </div>
           {navLinks.map(({ href, label }) => {
@@ -174,12 +178,13 @@ export default function Nav({ locale, navMessages }: NavProps) {
               <Link
                 key={href}
                 href={href}
-                onClick={() => setIsOpen(false)}
+                onClick={() => setOpenPathname(null)}
+                aria-current={isActive ? 'page' : undefined}
                 className={`px-4 py-3 rounded-lg text-lg font-medium transition-colors ${
                   isActive
                     ? 'text-[#e8b84b] bg-white/5'
                     : 'text-white/80 hover:text-[#e8b84b] hover:bg-white/5'
-                }`}
+                } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]`}
               >
                 {label}
               </Link>
@@ -187,8 +192,9 @@ export default function Nav({ locale, navMessages }: NavProps) {
           })}
           <Link
             href="/contact"
-            onClick={() => setIsOpen(false)}
-            className="mt-3 px-4 py-3 rounded-lg text-lg font-semibold text-center transition-all hover:opacity-90"
+            onClick={() => setOpenPathname(null)}
+            aria-current={pathname === '/contact' ? 'page' : undefined}
+            className="mt-3 px-4 py-3 rounded-lg text-lg font-semibold text-center transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]"
             style={{ backgroundColor: '#c8922a', color: '#fff' }}
           >
             {navMessages.joinArk}

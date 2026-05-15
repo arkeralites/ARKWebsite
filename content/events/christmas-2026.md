@@ -2,10 +2,10 @@
 title: "ARK Christmas Celebration 2026"
 date: "2026-12-20"
 month: "December 2026"
-venue: "Kvernevik, Stavanger"
+venue: "Kvernevik Bydelshus, Stavanger"
 category: "Celebration"
 featured: false
-excerpt: "Celebrate the festive season together with the ARK community — an evening of warmth, music, and festive cheer."
+excerpt: "Cakes, carols, and community warmth! Wrap up the year with your ARK family in an evening filled with festive cheer and musical magic."
 ---
 
 ## A Kerala Christmas in Norway

@@ -1,0 +1,60 @@
+name: Content update
+description: Request an event, text, contact info, or translation content change.
+title: "[Content]: "
+labels:
+  - content
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this form for content updates that do not need a full bug report.
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: What needs to be updated?
+      options:
+        - Event content
+        - Contact information
+        - Social links
+        - About page text
+        - Committee details
+        - New to Norway guide
+        - Local information
+        - Translation content
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: requested_change
+    attributes:
+      label: Requested change
+      description: Describe exactly what should be added, edited, or removed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Source or approved wording
+      description: Paste the final wording, approved text, or a link to the source if available.
+
+  - type: dropdown
+    id: languages
+    attributes:
+      label: Which language(s) are affected?
+      multiple: true
+      options:
+        - English
+        - Norwegian
+    validations:
+      required: true
+
+  - type: textarea
+    id: deadline
+    attributes:
+      label: Deadline or event date
+      description: Include a deadline if this needs to be updated before a specific date.
+

@@ -2,7 +2,7 @@
 title: "Kids Day 2026"
 date: "2026-06-14"
 month: "June 2026"
-venue: "LuraHallen, Stavanger"
+venue: "LuraHallen, Sandnes"
 category: "Family"
 featured: true
 excerpt: "A fun-filled day celebrating our children with games, food, and cultural activities."

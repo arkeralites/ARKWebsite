@@ -114,8 +114,8 @@ export default async function AboutPage() {
 
           <AnimateOnScroll delay={150}>
             <ul className="space-y-4 mt-8 md:mt-16">
-              {about.missionList.map((item, i) => (
-                <li key={i} className="flex gap-3 items-start">
+              {about.missionList.map((item) => (
+                <li key={item} className="flex gap-3 items-start">
                   <span
                     className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
                     style={{ backgroundColor: '#c8922a' }}

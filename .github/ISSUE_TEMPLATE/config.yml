@@ -1,0 +1,6 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ARK website contact email
+    url: mailto:arkeralites@gmail.com
+    about: Use email if the issue includes private details or access-related questions.
+

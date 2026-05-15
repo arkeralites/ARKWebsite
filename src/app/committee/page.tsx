@@ -131,7 +131,7 @@ export default async function CommitteePage() {
           <AnimateOnScroll stagger>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 max-w-3xl mx-auto">
               {executiveMembers.map((member, i) => (
-                <MemberCard key={i} member={member} index={i} locale={locale} large />
+                <MemberCard key={member.name} member={member} index={i} locale={locale} large />
               ))}
             </div>
           </AnimateOnScroll>
@@ -167,7 +167,7 @@ export default async function CommitteePage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
                 {generalMembers.map((member, i) => (
                   <MemberCard
-                    key={i}
+                    key={member.name}
                     member={member}
                     index={i + executiveMembers.length}
                     locale={locale}
@@ -191,7 +191,7 @@ export default async function CommitteePage() {
                 </div>
 
                 <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-                  {committee.highlights.map((item) => (
+                  {committee.highlights.map((item: string) => (
                     <li key={item} className="flex gap-3 items-start">
                       <span
                         className="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center mt-0.5"

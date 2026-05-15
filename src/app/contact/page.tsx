@@ -5,7 +5,7 @@ import { getRequestI18n } from '@/lib/i18n-server'
 import { socialLinkDefinitions } from '@/lib/social-links'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
-import EmailContactCard from '../../components/EmailContactCard'
+import EmailContactCard from '@/components/EmailContactCard'
 
 export async function generateMetadata(): Promise<Metadata> {
   const { locale, messages } = await getRequestI18n()

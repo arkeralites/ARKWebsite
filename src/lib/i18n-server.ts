@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import { defaultLocale, getMessages, isLocale, type Locale, localeCookieName } from './i18n'
+import { defaultLocale, getMessages, isLocale, type AppMessages, type Locale, localeCookieName } from './i18n'
 
 export async function getCurrentLocale(): Promise<Locale> {
   const cookieStore = await cookies()
@@ -12,8 +12,9 @@ export async function getCurrentLocale(): Promise<Locale> {
   return defaultLocale
 }
 
-export async function getRequestI18n() {
+export async function getRequestI18n(): Promise<{ locale: Locale; messages: AppMessages }> {
   const locale = await getCurrentLocale()
+
   return {
     locale,
     messages: getMessages(locale),

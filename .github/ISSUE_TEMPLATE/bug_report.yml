@@ -1,0 +1,72 @@
+name: Bug report
+description: Report a broken page, layout issue, translation problem, or deployment issue.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting this. Please include enough detail for a maintainer to reproduce the issue.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Affected area
+      options:
+        - Homepage
+        - About page
+        - Committee page
+        - Contact page
+        - Events page
+        - Event detail page
+        - New to Norway page
+        - Local page
+        - Language switcher / translation
+        - Deployment / build
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: What is wrong?
+      description: Describe the problem clearly.
+      placeholder: Example: The Norwegian translation is missing on the contact page.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: List the steps so someone else can reproduce it.
+      placeholder: |
+        1. Go to ...
+        2. Click ...
+        3. See error ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+      placeholder: What should have happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or links
+      description: Add screenshots, page links, or deployment links if available.
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, device, and any other useful context.
+      placeholder: Example: Chrome on Android, or Safari on iPhone.
+

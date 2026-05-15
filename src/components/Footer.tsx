@@ -4,7 +4,6 @@ import { siteConfig } from '@/lib/metadata'
 import { socialLinkDefinitions, type SocialLinkKey } from '@/lib/social-links'
 
 interface SocialLinkMessage {
-  label: string
   ariaLabel: string
 }
 
