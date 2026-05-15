@@ -180,9 +180,9 @@ export default async function ContactPage() {
               className="scroll-mt-28 bg-white rounded-2xl shadow-sm border p-8"
               style={{ borderColor: '#e8e0d4' }}
             >
-              <h2 className="font-serif text-2xl font-semibold mb-6" style={{ color: '#1a3a2a' }}>
-                {contact.joinTitle}
-              </h2>
+              {/*<h2 className="font-serif text-2xl font-semibold mb-6" style={{ color: '#1a3a2a' }}>*/}
+              {/*  {contact.joinTitle}*/}
+              {/*</h2>*/}
               <EmailContactCard
                 intro={emailCard.intro}
                 buttonLabel={emailCard.button}
