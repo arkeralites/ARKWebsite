@@ -130,7 +130,7 @@ export const en = {
       {
         "year": "Today",
         "title": "An Active, Growing Community",
-        "description": "Today, ARK is a bustling, multi-generational hub. From massive festival stages and cozy picnics to guiding the next generation of Malayali-Norwegians, we keep the vibrant spirit, language, and heartbeat of Kerala thriving under the Nordic skies."
+        "description": "Today, ARK is a bustling, multi-generational hub. From massive festival stages and cozy picnics to guiding the next generation of Malayali-Norwegians, we keep the vibrant spirit, language, and heartbeat of Kerala thriving under the Nordic skies—now proudly uniting more than 200 members across Rogaland."
       }
     ],
     "missionLabel": "Our Mission",
@@ -145,7 +145,7 @@ export const en = {
     ],
     "visionLabel": "Our Vision",
     "visionTitle": "What we are building",
-    "visionText": "A Rogaland where every Keralite feels at home, where our children grow up proud of their heritage, where integration and culture walk hand in hand — and where the warmth of Kerala is never more than a gathering away.",
+    "visionText": "A Rogaland community where every Keralite feels at home, where our children grow up proud of their heritage, where integration and culture walk hand in hand — and where the warmth of Kerala is never more than a gathering away.",
     "valuesLabel": "Our Values",
     "valuesTitle": "What guides us",
     "values": [
