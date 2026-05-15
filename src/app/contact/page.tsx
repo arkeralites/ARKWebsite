@@ -176,17 +176,18 @@ export default async function ContactPage() {
           {/* Right — contact */}
           <AnimateOnScroll delay={150}>
             <div
-              className="bg-white rounded-2xl shadow-sm border p-8"
+              id="join"
+              className="scroll-mt-28 bg-white rounded-2xl shadow-sm border p-8"
               style={{ borderColor: '#e8e0d4' }}
             >
               <h2 className="font-serif text-2xl font-semibold mb-6" style={{ color: '#1a3a2a' }}>
-                {contact.emailUsTitle}
+                {contact.joinTitle}
               </h2>
               <EmailContactCard
                 intro={emailCard.intro}
                 buttonLabel={emailCard.button}
                 directPrefix={emailCard.directPrefix}
-                subject={emailCard.subject}
+                subject={contact.joinSubject}
               />
             </div>
           </AnimateOnScroll>

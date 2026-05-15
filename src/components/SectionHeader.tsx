@@ -1,3 +1,5 @@
+import FormattedInlineText from '@/components/FormattedInlineText'
+
 interface SectionHeaderProps {
   label: string
   title: string
@@ -36,7 +38,7 @@ export default function SectionHeader({
             center ? 'mx-auto max-w-2xl' : 'max-w-2xl'
           } ${light ? 'text-white/70' : 'text-gray-600'}`}
         >
-          {intro}
+          <FormattedInlineText text={intro} />
         </p>
       )}
     </div>

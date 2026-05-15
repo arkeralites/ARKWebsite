@@ -11,6 +11,7 @@ import {
 } from '@/lib/events'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
+import FormattedInlineText from '@/components/FormattedInlineText'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -106,7 +107,9 @@ export default async function EventDetailPage({ params }: PageProps) {
           </div>
 
           {/* Excerpt */}
-          <p className="mt-4 text-white/70 text-lg max-w-2xl leading-relaxed">{excerpt}</p>
+          <p className="mt-4 text-white/70 text-lg max-w-2xl leading-relaxed">
+            <FormattedInlineText text={excerpt} />
+          </p>
         </div>
       </section>
 

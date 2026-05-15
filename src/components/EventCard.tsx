@@ -2,6 +2,7 @@
 import type { ARKEvent } from '@/lib/events'
 import type { Locale } from '@/lib/i18n'
 import { formatEventMonthForLocale, getLocalizedEventCategory } from '@/lib/events'
+import FormattedInlineText from '@/components/FormattedInlineText'
 
 interface EventCardProps {
   event: ARKEvent
@@ -69,7 +70,7 @@ export default function EventCard({
 
         {/* Excerpt */}
         <p className="text-sm leading-relaxed text-gray-600 flex-1">
-          {excerpt}
+          <FormattedInlineText text={excerpt} />
         </p>
 
         {/* CTA */}

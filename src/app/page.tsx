@@ -85,7 +85,7 @@ export default async function HomePage() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href="/contact#join"
               className="px-8 py-3.5 rounded-xl font-semibold text-white text-base transition-all hover:opacity-90 active:scale-95"
               style={{ backgroundColor: '#c8922a' }}
             >

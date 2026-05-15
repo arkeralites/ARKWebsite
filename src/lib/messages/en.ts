@@ -22,14 +22,15 @@ export const en = {
   "footer": {
     "quickLinks": "Quick Links",
     "getInTouch": "Get in Touch",
+    "joinArk": "Join ARK",
     "ariaLabel": "Site footer",
     "logoAlt": "ARK logo",
     "brandSubtitle": "Association of Rogaland Keralites",
-    "brandDescription": "Bringing the spirit of God's Own Country to Fjord's Own Country since 2009. A community of Keralites united in culture, friendship, and support.",
+    "brandDescription": "Bringing the spirit of God's Own Country to Fjords' Own Country since 2009—a vibrant community of Keralites united in culture, lifelong friendship, and mutual support.",
     "contactLocation": "Rogaland, Norway",
     "builtWith": "Built with ❤️ for the Kerala community in Rogaland",
     "rights": "ARK — Association of Rogaland Keralites",
-    "orgNumberLabel": "Org. number",
+    "orgNumberLabel": "Org.nr.",
     "links": {
       "home": "Home",
       "about": "About ARK",
@@ -48,7 +49,7 @@ export const en = {
     "bannerAlt": "ARK — Association of Rogaland Keralites: Kerala backwaters, cultural performers, and the ARK logo",
     "heroTag": "Association of Rogaland Keralites - Est. 2009",
     "heroTitleTop": "Connecting",
-    "heroTitleBottom": "Fjord's Own Country",
+    "heroTitleBottom": "to Fjord's Own Country",
     "heroHighlightTop": "God's Own Country",
     "heroConnector": "to",
     "heroText": "From the land of coconuts to the land of the midnight sun. Bringing the warmth of Malayalam, the spice of home, and a tight-knit family to everyone in Rogaland.",
@@ -84,16 +85,16 @@ export const en = {
     "about": {
       "label": "Who We Are",
       "title": "A community rooted in Kerala, blossoming in Norway",
-      "paragraph1": "ARK — Association of Rogaland Keralites — was founded in 2009 by Keralites who wanted to keep their culture alive while building a new life in Norway. Today, we are a registered organisation bringing together hundreds of Keralites across Stavanger, Sandnes, and the wider Rogaland region.",
-      "paragraph2": "From Onam feasts to helping newcomers find their footing, ARK is the warm community bridge between God's Own Country and Fjords Own Country.",
-      "cta": "Learn about ARK"
+      "paragraph1": "ARK — Association of Rogaland Keralites was born in 2009 out of a simple, powerful longing: a few Keralites wanting to share the warmth of home while building a new life beneath the northern skies. Today, we have grown into a vibrant family of hundreds of Malayalis across Stavanger, Sandnes, and the wider Rogaland region",
+      "paragraph2": "From grand Onam feasts and festive stages to helping newcomers navigate their very first Norwegian winter, ARK is more than just an association—we are your home away from home.",
+      "cta": "Our Story "
     },
     "newcomers": {
       "label": "For Newcomers",
       "title": "New to Norway? We've got you.",
-      "intro": "Moving to a new country is hard. ARK members have been through it. We've put together a practical guide covering healthcare, housing, NAV, schools, banking, and more.",
-      "guide": "New to Norway Guide",
-      "localLife": "Kerala Life in Rogaland"
+      "intro": "Moving across the world is a massive leap, but you don't have to navigate it alone. Our community has distilled years of local experience into an easy guide covering healthcare, housing, banking, and schools. Let us handle the complicated stuff so you can settle in smoothly.",
+      "guide": "Get the Newcomer Guide",
+      "localLife": "Explore Community Life"
     },
     "aria": {
       "banner": "ARK banner",
@@ -106,41 +107,41 @@ export const en = {
   "about": {
     "heroLabel": "Our Story",
     "heroTitle": "Who We Are",
-    "heroText": "A community born from homesickness, shaped by love for Kerala, and rooted in the beautiful fjord country of Rogaland.",
+    "heroText": "From deep naattile nostalgia to a thriving community abroad. Keeping the heart of Kerala beating strong right here in the fjord country.",
     "timelineLabel": "Our Journey",
     "timelineTitle": "15 Years of Community",
-    "timelineIntro": "From a small gathering over Onam to a registered organisation — the story of ARK.",
+    "timelineIntro": "What began as a single nostalgic lunch has grown into a thriving cultural anchor. Here is how we built our home away from home.",
     "timeline": [
       {
         "year": "2009",
         "title": "Founded as Stavanger Keralites",
-        "description": "A small group of Keralites living in Stavanger came together to celebrate Onam and support each other in a new land. The seed of ARK was planted."
+        "description": "Longing for the sights, sounds, and flavors of home, a handful of Malayali families gathered in Stavanger to share an Onam feast. In that single afternoon of laughter and connection, the seed of our community was planted."
       },
       {
         "year": "2014",
         "title": "Renamed to ARK",
-        "description": "As the community grew beyond Stavanger to Sandnes and the wider Rogaland region, the organisation was renamed to Association of Rogaland Keralites — ARK."
+        "description": "We outgrew our city limits! As more families arrived across Sandnes, Sola, and beyond, we expanded our horizons and officially became the Association of Rogaland Keralites (ARK) — anchoring Malayalis across the entire region."
       },
       {
         "year": "2019",
-        "title": "Registered Organisation",
-        "description": "ARK became an officially registered organisation in Norway (Org.nr: 919 226 447), formalising our commitment to the community."
+        "title": "Making It Official",
+        "description": "To better serve our expanding family, ARK became a fully registered, formal non-profit organization in Norway. This opened doors to bigger venues, better events, and a permanent voice in the local cultural landscape."
       },
       {
         "year": "Today",
         "title": "An Active, Growing Community",
-        "description": "ARK organises multiple events each year, supports newcomers settling in Rogaland, and keeps the culture, language, and spirit of Kerala alive — far from home."
+        "description": "Today, ARK is a bustling, multi-generational hub. From massive festival stages and cozy picnics to guiding the next generation of Malayali-Norwegians, we keep the vibrant spirit, language, and heartbeat of Kerala thriving under the Nordic skies."
       }
     ],
     "missionLabel": "Our Mission",
     "missionTitle": "Why ARK exists",
     "missionQuote": "To bring together Keralites in Rogaland, preserve our cultural identity, and build a life that honours both where we come from and where we are.",
     "missionList": [
-      "Promote and preserve Kerala culture, traditions, language, and arts in Rogaland",
-      "Support Keralites newly arrived in Norway through practical guidance and community warmth",
-      "Bridge the Kerala community with Norwegian society and foster integration",
-      "Undertake charitable and humanitarian projects for those in need",
-      "Provide a platform for celebrating festivals, sharing experiences, and building friendships"
+      "Keeping Traditions Alive: Nurturing Kerala's rich heritage, language, and artistic expressions for generations to come.",
+      "A Warm Welcome to New Arrivals: Providing a safety net of practical guidance and friendship for everyone settling in Norway.",
+      "Embracing Our Two Homes: Actively bridging our Malayali roots with Norwegian society, making integration natural and smooth.",
+      "Spreading Kindness: Organizing dedicated charity and relief projects to uplift those going through difficult times.",
+      "Gathering in Joy: Providing a space where we can celebrate our biggest milestones, share life experiences, and grow closer.",
     ],
     "visionLabel": "Our Vision",
     "visionTitle": "What we are building",
@@ -151,22 +152,22 @@ export const en = {
       {
         "icon": "🤝",
         "title": "Community",
-        "description": "No one should feel alone in a new country. ARK is built on the simple belief that we are stronger, happier, and more rooted when we come together."
+        "description": "No one should have to navigate a new country alone. ARK thrives on a simple truth: we are stronger, happier, and deeply resilient when we lift each other up as one big family."
       },
       {
         "icon": "🎭",
         "title": "Culture",
-        "description": "Kerala has one of the world's richest cultural traditions. We keep it alive in Rogaland — through food, music, dance, language, and celebration."
+        "description": "Kerala’s heritage is vibrant, ancient, and soulful. From the rhythm of the drums to the flavors of our feasts, we proudly keep our language, arts, and traditions alive beneath the northern skies."
       },
       {
         "icon": "🌉",
         "title": "Integration",
-        "description": "We celebrate our roots while embracing Norway. ARK helps members navigate Norwegian society — not as outsiders, but as valued contributors."
+        "description": "We honor our roots while fully embracing our Norwegian home. We actively guide our members to thrive in local society—not as bystanders, but as proud, valued contributors to the community."
       },
       {
         "icon": "🫂",
         "title": "Support",
-        "description": "When you are new, the smallest help makes the biggest difference. ARK members guide, advise, and stand by each other — through good times and tough ones."
+        "description": "When you step into a new life, a helping hand changes everything. We are here to advise, shield, and stand firmly by one another—sharing the joy of the good times and weathering the tough ones together."
       }
     ],
     "aria": {
@@ -180,25 +181,25 @@ export const en = {
   "committee": {
     "heroLabel": "ARK Leadership",
     "heroTitle": "Meet the Committee",
-    "heroText": "ARK is run entirely by volunteers from the Kerala community in Rogaland. These are the people who give their time to keep the community together.",
+    "heroText": "ARK is powered entirely by the passion of volunteers from our local community. Meet the dedicated team pouring their hearts and time into keeping the spirit of home alive in Rogaland.",
     "executiveLabel": "Executive Board",
     "executiveTitle": "Office Bearers",
-    "executiveIntro": "The elected officers who lead ARK and are responsible for the organisation's activities and governance.",
+    "executiveIntro": "The elected leadership team steering ARK's vision, managing our grand celebrations, and ensuring transparent governance.",
     "membersLabel": "Committee",
     "membersTitle": "Committee Members",
     "membersIntro": "Volunteers who support the executive board in organising events and community activities.",
     "termPrefix": "ARK Committee",
     "workTitle": "What the committee works on",
     "highlights": [
-      "Organise ARK festivals, family gatherings, and cultural celebrations throughout the year.",
-      "Support newcomers settling in Rogaland with practical guidance and community connections.",
-      "Coordinate volunteers, communication, and planning for community activities.",
-      "Promote Kerala culture, language, and traditions for families growing up in Norway.",
-      "Strengthen friendships and belonging among Keralites across Stavanger, Sandnes, and the wider region."
+      "Host Grand Celebrations: Bringing the community together through beautifully organized festivals, seasonal feasts, and lively family gatherings all year round.",
+      "Welcome New Arrivals: Serving as a reliable landing pad for newly arrived families by offering them local advice and immediate social networks.",
+      "Mobilize & Coordinate: Channeling the energy of our amazing volunteers, managing internal communications, and mapping out seamless event logistics.",
+      "Pass Down Our Roots: Nurturing Keralite heritage, arts, and language so the next generation of Malayali-Norwegians grows up proud of their identity.",
+      "Cultivate Lifelong Bonds: Creating intentional spaces that spark deep friendships, mutual support, and a true sense of belonging across Rogaland."
     ],
-    "ctaTitle": "Want to connect with the committee?",
-    "ctaText": "Reach out to us for any questions or to get involved",
-    "ctaButton": "Get Involved",
+    "ctaTitle": "Want to shape our community's future?",
+    "ctaText": "Whether you want to pitch a fresh event idea, have questions about our operations —we’d absolutely love to hear from you.",
+    "ctaButton": "Say Hello to the Board",
     "aria": {
       "hero": "Committee page hero",
       "executive": "Executive committee",
@@ -212,10 +213,12 @@ export const en = {
     "heroText": "Whether you want to join ARK, ask about events, or just need someone to help you navigate Norway — we're here.",
     "sectionLabel": "Contact ARK",
     "sectionTitle": "Reach us directly",
+    "joinTitle": "Join ARK",
+    "joinSubject": "I'd like to join ARK",
     "detailLabels": {
       "email": "Email",
       "location": "Location",
-      "orgNumber": "Org. number"
+      "orgNumber": "Org.nr. "
     },
     "followTitle": "Follow ARK",
     "orgText": "ARK is a registered non-profit organisation in Norway.",
@@ -229,19 +232,19 @@ export const en = {
   "events": {
     "heroLabel": "ARK Events",
     "heroTitle": "Gather · Celebrate · Connect",
-    "heroText": "From Onam feasts to family days — our events are the heartbeat of the ARK community.",
+    "heroText": "From the massive rhythms of Onam to cozy winter gatherings—this is where our stories unfold and friendships grow.",
     "upcomingLabel": "Coming Up",
     "upcomingTitle": "What's On",
-    "upcomingIntro": "Mark your calendar — these events are coming up in the ARK community.",
+    "upcomingIntro": "Save the dates for your next dose of naattile celebration. Find out where and when the ARK family is gathering next.",
     "emptyTitle": "No upcoming events right now",
     "emptyPrefix": "Follow us on",
     "emptySuffix": "for the latest announcements.",
     "pastLabel": "In the Past",
     "pastTitle": "Where We've Been",
     "pastIntro": "A look back at ARK's events and celebrations.",
-    "ctaTitle": "Want to be notified about upcoming events?",
-    "ctaText": "Join our WhatsApp community group and follow us on Facebook and Instagram.",
-    "ctaButton": "Get in Touch",
+    "ctaTitle": "Never miss a beat of home.",
+    "ctaText": "JJoin our vibrant community and follow us on Facebook, Instagram, and WhatsApp to stay in the loop for every celebration, feast, and get-together!",
+    "ctaButton": "Step Into the Community",
     "aria": {
       "hero": "Events hero",
       "upcoming": "Upcoming events",
@@ -322,18 +325,18 @@ export const en = {
   "norway": {
     "heroLabel": "For Newcomers",
     "heroTitle": "New to Norway?",
-    "heroText": "We've been where you are. This guide is written by ARK members who have navigated the Norwegian system — so you don't have to figure it out alone.",
+    "heroText": "We’ve walked in your shoes. Our community has decoded the Norwegian system from scratch so you can skip the guesswork and settle in with ease.",
     "noteTitle": "Written by ARK members who have been through it.",
     "noteBeforeEmail": "Information here is community knowledge — always verify with official sources. Need personal help? Contact us at",
     "noteAfterEmail": "— we're happy to help!",
     "sectionLabel": "Practical Guide",
     "sectionTitle": "Getting settled in Rogaland",
-    "sectionIntro": "Eight things you need to sort when you arrive — in roughly the right order.",
+    "sectionIntro": "Your Rogaland Checklist: 8 essential steps to sort out when you land, in the perfect order.",
     "sections": [
       {
         "icon": "🏥",
         "title": "Healthcare",
-        "description": "Register with a fastlege (GP/family doctor) via helsenorge.no as soon as you get your D-number or National ID. You are entitled to a fastlege as a registered resident. For urgent non-emergency care outside GP hours, visit the Legevakt. For life-threatening emergencies, call 113.",
+        "description": "Your first priority! Register for your family doctor (fastlege) via helsenorge.no as soon as your ID number arrives. For late-night or weekend non-emergencies, head to the local Legevakt. For absolute life-threatening emergencies, dial 113.",
         "links": [
           {
             "label": "helsenorge.no",
@@ -348,7 +351,7 @@ export const en = {
       {
         "icon": "🏠",
         "title": "Housing",
-        "description": "For renting, the main platform is finn.no — search for “leilighet til leie” (apartment for rent) in Stavanger or Sandnes. Expect to pay 3 months deposit upfront, held in a separate bank account. The standard notice period for leaving is 3 months.",
+        "description": "Finding your roof in Rogaland happens on finn.no (look for 'leilighet til leie'). Landlords typically require a 3-month deposit held securely in a special deposit account (depositumskonto). The standard notice period for leaving is 3 months.",
         "links": [
           {
             "label": "finn.no — Rentals",
@@ -359,7 +362,7 @@ export const en = {
       {
         "icon": "🏛️",
         "title": "NAV — Social Support",
-        "description": "NAV is Norway's Labour and Welfare Administration. Register at nav.no when you arrive. If you are newly arrived, ask about integration programmes (Introduksjonsprogrammet). NAV can help with financial support, job seeking, and navigating benefits. Visit your local NAV office in Stavanger or Sandnes.",
+        "description": "Norway’s career and social support anchor. If you're job hunting or looking into integration tracks like the Introduksjonsprogrammet, connect with your local NAV office in Stavanger or Sandnes to unlock guidance.",
         "links": [
           {
             "label": "nav.no",
@@ -430,9 +433,9 @@ export const en = {
         ]
       }
     ],
-    "ctaTitle": "Still have questions?",
-    "ctaText": "ARK members have navigated all of this. Reach out — we genuinely love helping newcomers find their feet in Rogaland.",
-    "ctaButton": "Email Us",
+    "ctaTitle": "Still figuring things out?",
+    "ctaText": "You don't have to navigate the system alone. Our members are always ready to share their local tips and guide you through the transition.",
+    "ctaButton": "Chat With Us",
     "aria": {
       "hero": "New to Norway guide hero",
       "sections": "Settlement guide sections",

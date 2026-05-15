@@ -12,6 +12,7 @@ import type { Locale } from '@/lib/i18n'
 import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import HighlightedMalayalamText from '@/components/HighlightedMalayalamText'
 import Link from 'next/link'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -202,7 +203,13 @@ export default async function CommitteePage() {
                           <polyline points="20 6 9 17 4 12"/>
                         </svg>
                       </span>
-                      <span className="text-gray-700 leading-relaxed">{item}</span>
+                      <span className="text-gray-700 leading-relaxed">
+                        <HighlightedMalayalamText
+                          text={item}
+                          emphasizePrefixBeforeColon
+                          prefixClassName="font-semibold text-[#1a3a2a]"
+                        />
+                      </span>
                     </li>
                   ))}
                 </ul>

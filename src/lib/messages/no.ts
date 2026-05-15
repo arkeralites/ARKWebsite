@@ -24,6 +24,7 @@ export const no = {
   "footer": {
     "quickLinks": "Hurtiglenker",
     "getInTouch": "Ta kontakt",
+    "joinArk": "Bli med i ARK",
     "ariaLabel": "Nettstedsbunntekst",
     "logoAlt": "ARK-logo",
     "brandSubtitle": "Foreningen av Rogalands keralitter",
@@ -214,6 +215,8 @@ export const no = {
     "heroText": "Enten du vil bli med i ARK, spørre om arrangementer eller trenger hjelp til å finne deg til rette i Norge — vi er her.",
     "sectionLabel": "Kontakt ARK",
     "sectionTitle": "Nå oss direkte",
+    "joinTitle": "Bli med i ARK",
+    "joinSubject": "Jeg vil gjerne bli med i ARK",
     "detailLabels": {
       "email": "E-post",
       "location": "Sted",

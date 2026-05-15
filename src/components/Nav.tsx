@@ -4,8 +4,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
-import type { Locale } from '@/lib/i18n'
 
 interface NavMessages {
   links: {
@@ -19,18 +17,15 @@ interface NavMessages {
   openMenu: string
   closeMenu: string
   homeAria: string
-  languageLabel: string
-  shortLabels: Record<Locale, string>
   mainNavigationAria: string
   logoAlt: string
 }
 
 interface NavProps {
-  locale: Locale
   navMessages: NavMessages
 }
 
-export default function Nav({ locale, navMessages }: NavProps) {
+export default function Nav({ navMessages }: NavProps) {
   const pathname = usePathname()
   const [openPathname, setOpenPathname] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
@@ -115,20 +110,20 @@ export default function Nav({ locale, navMessages }: NavProps) {
             )
           })}
           <Link
-            href="/contact"
+            href="/contact#join"
             aria-current={pathname === '/contact' ? 'page' : undefined}
             className="ml-3 px-4 py-3 rounded-lg text-base font-semibold transition-all duration-150 hover:opacity-90 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]"
             style={{ backgroundColor: '#c8922a', color: '#fff' }}
           >
             {navMessages.joinArk}
           </Link>
-          <div className="ml-3">
-            <LanguageSwitcher
-              locale={locale}
-              label={navMessages.languageLabel}
-              shortLabels={navMessages.shortLabels}
-            />
-          </div>
+          {/*<div className="ml-3">*/}
+          {/*  <LanguageSwitcher*/}
+          {/*    locale={locale}*/}
+          {/*    label={navMessages.languageLabel}*/}
+          {/*    shortLabels={navMessages.shortLabels}*/}
+          {/*  />*/}
+          {/*</div>*/}
         </div>
 
         {/* Mobile hamburger */}
@@ -164,14 +159,14 @@ export default function Nav({ locale, navMessages }: NavProps) {
           className="md:hidden px-4 pb-6 pt-2 flex flex-col gap-1"
           style={{ backgroundColor: 'rgba(26, 58, 42, 0.98)' }}
         >
-          <div className="mb-3 flex justify-end">
-            <LanguageSwitcher
-              locale={locale}
-              label={navMessages.languageLabel}
-              shortLabels={navMessages.shortLabels}
-              onLocaleChange={() => setOpenPathname(null)}
-            />
-          </div>
+          {/*<div className="mb-3 flex justify-end">*/}
+          {/*  <LanguageSwitcher*/}
+          {/*    locale={locale}*/}
+          {/*    label={navMessages.languageLabel}*/}
+          {/*    shortLabels={navMessages.shortLabels}*/}
+          {/*    onLocaleChange={() => setOpenPathname(null)}*/}
+          {/*  />*/}
+          {/*</div>*/}
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href
             return (
@@ -191,7 +186,7 @@ export default function Nav({ locale, navMessages }: NavProps) {
             )
           })}
           <Link
-            href="/contact"
+            href="/contact#join"
             onClick={() => setOpenPathname(null)}
             aria-current={pathname === '/contact' ? 'page' : undefined}
             className="mt-3 px-4 py-3 rounded-lg text-lg font-semibold text-center transition-all hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a]"
