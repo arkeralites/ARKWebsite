@@ -195,11 +195,13 @@ export const en = {
       "Welcome New Arrivals: Serving as a reliable landing pad for newly arrived families by offering them local advice and immediate social networks.",
       "Mobilize & Coordinate: Channeling the energy of our amazing volunteers, managing internal communications, and mapping out seamless event logistics.",
       "Pass Down Our Roots: Nurturing Keralite heritage, arts, and language so the next generation of Malayali-Norwegians grows up proud of their identity.",
-      "Cultivate Lifelong Bonds: Creating intentional spaces that spark deep friendships, mutual support, and a true sense of belonging across Rogaland."
+      "Cultivate Lifelong Bonds: Creating intentional spaces that spark deep friendships, mutual support, and a true sense of belonging across Rogaland.","Bridging with Norwegian Society: Empowering our members to thrive in their new home through language support, active collaboration in local municipality events, and meaningful civic engagement — seamlessly blending our rich traditions with Norwegian culture."
     ],
     "ctaTitle": "Want to shape our community's future?",
     "ctaText": "Whether you want to pitch a fresh event idea, have questions about our operations —we’d absolutely love to hear from you.",
     "ctaButton": "Say Hello to the Board",
+    "noteLabel": "Note",
+    "noteText": "**Elections are held at the General Assembly during Onam: annually for Committee Members, and every two years for Executive Office Bearers.**",
     "aria": {
       "hero": "Committee page hero",
       "executive": "Executive committee",

@@ -24,6 +24,7 @@ export default async function HomePage() {
   const { home, common } = messages
   const upcomingEvents = getUpcomingEvents().slice(0, 3)
   const stats = home.stats
+  const joinHref = { pathname: '/contact', hash: 'join' } as const
 
   return (
     <main>
@@ -85,7 +86,7 @@ export default async function HomePage() {
           {/* CTA buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact#join"
+              href={joinHref}
               className="px-8 py-3.5 rounded-xl font-semibold text-white text-base transition-all hover:opacity-90 active:scale-95"
               style={{ backgroundColor: '#c8922a' }}
             >
@@ -274,13 +275,6 @@ export default async function HomePage() {
                 style={{ backgroundColor: '#c8922a' }}
               >
                 {home.newcomers.guide}
-              </Link>
-              <Link
-                href="/local"
-                className="px-8 py-3.5 rounded-xl font-semibold text-base transition-all hover:bg-gray-100 border border-gray-300"
-                style={{ color: '#1a3a2a' }}
-              >
-                {home.newcomers.localLife}
               </Link>
             </div>
           </AnimateOnScroll>

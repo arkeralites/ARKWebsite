@@ -202,6 +202,8 @@ export const no = {
     "ctaTitle": "Vil du komme i kontakt med komiteen?",
     "ctaText": "Ta kontakt hvis du har spørsmål eller vil engasjere deg",
     "ctaButton": "Bli med",
+    "noteLabel": "Merk",
+    "noteText": "Komitémedlemmer velges årlig, og de tillitsvalgte i styret velges hvert andre år på generalforsamlingen (Onam).",
     "aria": {
       "hero": "Komitésidens helteseksjon",
       "executive": "Styret",
