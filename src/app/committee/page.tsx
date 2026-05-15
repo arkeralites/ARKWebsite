@@ -12,7 +12,7 @@ import type { Locale } from '@/lib/i18n'
 import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
-import HighlightedMalayalamText from '@/components/HighlightedMalayalamText'
+import FormattedInlineText from '@/components/FormattedInlineText'
 import Link from 'next/link'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -204,7 +204,7 @@ export default async function CommitteePage() {
                         </svg>
                       </span>
                       <span className="text-gray-700 leading-relaxed">
-                        <HighlightedMalayalamText
+                        <FormattedInlineText
                           text={item}
                           emphasizePrefixBeforeColon
                           prefixClassName="font-semibold text-[#1a3a2a]"

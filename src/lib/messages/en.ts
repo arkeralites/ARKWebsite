@@ -49,7 +49,7 @@ export const en = {
     "bannerAlt": "ARK — Association of Rogaland Keralites: Kerala backwaters, cultural performers, and the ARK logo",
     "heroTag": "Association of Rogaland Keralites - Est. 2009",
     "heroTitleTop": "Connecting",
-    "heroTitleBottom": "to Fjord's Own Country",
+    "heroTitleBottom": "Fjord's Own Country",
     "heroHighlightTop": "God's Own Country",
     "heroConnector": "to",
     "heroText": "From the land of coconuts to the land of the midnight sun. Bringing the warmth of Malayalam, the spice of home, and a tight-knit family to everyone in Rogaland.",

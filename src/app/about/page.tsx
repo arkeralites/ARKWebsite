@@ -3,7 +3,7 @@ import { generatePageMetadata } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
-import HighlightedMalayalamText from '@/components/HighlightedMalayalamText'
+import FormattedInlineText from '@/components/FormattedInlineText'
 
 export async function generateMetadata(): Promise<Metadata> {
   const { locale, messages } = await getRequestI18n()
@@ -35,7 +35,7 @@ export default async function AboutPage() {
             {about.heroTitle}
           </h1>
           <p className="text-white/65 text-lg mt-4 leading-relaxed">
-            <HighlightedMalayalamText text={about.heroText} />
+            <FormattedInlineText text={about.heroText} />
           </p>
         </div>
       </section>
@@ -127,7 +127,7 @@ export default async function AboutPage() {
                     </svg>
                   </span>
                   <span className="text-white/70 leading-relaxed text-base">
-                    <HighlightedMalayalamText
+                    <FormattedInlineText
                       text={item}
                       emphasizePrefixBeforeColon
                       prefixClassName="font-semibold text-white"

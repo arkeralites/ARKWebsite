@@ -1,38 +1,16 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import type { AppMessages } from '@/lib/i18n'
 import { siteConfig } from '@/lib/metadata'
-import { socialLinkDefinitions, type SocialLinkKey } from '@/lib/social-links'
-
-interface SocialLinkMessage {
-  ariaLabel: string
-}
-
-interface FooterMessages {
-  quickLinks: string
-  getInTouch: string
-  ariaLabel: string
-  logoAlt: string
-  brandSubtitle: string
-  brandDescription: string
-  contactLocation: string
-  builtWith: string
-  rights: string
-  orgNumberLabel: string
-  links: {
-    home: string
-    about: string
-    events: string
-    norway: string
-    contact: string
-  }
-}
+import { socialLinkDefinitions } from '@/lib/social-links'
 
 interface FooterProps {
-  footerMessages: FooterMessages
-  socialMessages: Record<SocialLinkKey, SocialLinkMessage>
+  footerMessages: AppMessages['footer']
+  socialMessages: AppMessages['common']['socialLinks']
 }
 
 export default function Footer({ footerMessages, socialMessages }: FooterProps) {
+  const joinHref = { pathname: '/contact', hash: 'join' } as const
   const quickLinks = [
     { href: '/', label: footerMessages.links.home },
     { href: '/about', label: footerMessages.links.about },
@@ -119,6 +97,14 @@ export default function Footer({ footerMessages, socialMessages }: FooterProps) 
             </li>
             <li className="text-white/65">{footerMessages.contactLocation}</li>
           </ul>
+
+          <Link
+            href={joinHref}
+            className="inline-flex mt-5 px-4 py-2.5 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90"
+            style={{ backgroundColor: '#c8922a' }}
+          >
+            {footerMessages.joinArk}
+          </Link>
 
           {/* Social icons */}
           <div className="flex gap-4 mt-6">
