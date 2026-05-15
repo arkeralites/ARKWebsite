@@ -219,6 +219,27 @@ export default async function CommitteePage() {
         </section>
       )}
 
+      <section className="px-4 py-10" style={{ backgroundColor: '#f5f0e8' }}>
+        <div className="max-w-3xl mx-auto">
+          <AnimateOnScroll>
+            <div
+              className="rounded-2xl border px-5 py-5 md:px-6 md:py-6 text-center shadow-sm"
+              style={{ backgroundColor: 'rgba(255,255,255,0.88)', borderColor: '#d4c8b4' }}
+            >
+              {/*<span*/}
+              {/*  className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]"*/}
+              {/*  style={{ backgroundColor: 'rgba(200,146,42,0.12)', color: '#c8922a' }}*/}
+              {/*>*/}
+              {/*  {committee.noteLabel}*/}
+              {/*</span>*/}
+              <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: '#5f5f5f' }}>
+                {committee.noteText}
+              </p>
+            </div>
+          </AnimateOnScroll>
+        </div>
+      </section>
+
       {/*/!* Deputy Members *!/*/}
       {/*{deputyMembers.length > 0 && (*/}
       {/*  <section*/}
