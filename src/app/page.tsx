@@ -163,6 +163,7 @@ export default async function HomePage() {
                     locale={locale}
                     categoryLabels={common.categories}
                     categoryFallback={common.unknownCategory}
+                    viewDetailsLabel={common.viewDetails}
                   />
                 ))}
               </div>

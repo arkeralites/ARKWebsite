@@ -126,6 +126,7 @@ export default async function EventDetailPage({ params }: PageProps) {
             </div>
           </article>
 
+
           {/* Back + share row */}
           <div className="mt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <Link

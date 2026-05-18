@@ -244,6 +244,23 @@ export const en = {
     "pastLabel": "In the Past",
     "pastTitle": "Where We've Been",
     "pastIntro": "A look back at ARK's events and celebrations.",
+    "galleryLabel": "Event Gallery",
+    "galleryTitle": "Moments We've Shared",
+    "galleryIntro": "Choose a gallery category to browse photos from ARK gatherings and celebrations.",
+    "galleryOpenCta": "Open gallery",
+    "galleryBackToEvents": "Back to events",
+    "galleryCategoryIntro": "A photo collection from this ARK gallery category.",
+    "galleryCardAriaPrefix": "Open",
+    "galleryCardAriaSuffix": "gallery",
+    "galleryCloseLabel": "Close gallery image",
+    "galleryPreviousLabel": "Previous image",
+    "galleryNextLabel": "Next image",
+    "galleryGroups": {
+      "onam": "Onam Gatherings",
+      "christmas": "Christmas/Diwali Gatherings",
+      "easterVishuEid": "Easter/Vishu/Eid Gatherings",
+      "otherActivities": "Other Activities"
+    },
     "ctaTitle": "Never miss a beat of home.",
     "ctaText": "Join our vibrant community and follow us on Facebook, Instagram, and WhatsApp to stay in the loop for every celebration, feast, and get-together!",
     "ctaButton": "Step Into the Community",
@@ -480,6 +497,7 @@ export const en = {
   },
   "common": {
     "facebook": "Facebook",
+    "viewDetails": "View details",
     "unknownCategory": "Community",
     "categories": {
       "Festival": "Festival",
