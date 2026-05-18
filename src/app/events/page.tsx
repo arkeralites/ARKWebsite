@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
-import { getUpcomingEvents, getPastEvents } from '@/lib/events'
+import { getAllEventGalleryGroups, getUpcomingEvents, getPastEvents } from '@/lib/events'
 import EventCard from '@/components/EventCard'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
@@ -22,6 +24,7 @@ export default async function EventsPage() {
   const { events, common } = messages
   const upcoming = getUpcomingEvents()
   const past = getPastEvents()
+  const galleryGroups = getAllEventGalleryGroups()
 
   return (
     <main className="pt-16">
@@ -65,6 +68,7 @@ export default async function EventsPage() {
                     locale={locale}
                     categoryLabels={common.categories}
                     categoryFallback={common.unknownCategory}
+                    viewDetailsLabel={common.viewDetails}
                   />
                 ))}
               </div>
@@ -122,7 +126,69 @@ export default async function EventsPage() {
                     muted
                     categoryLabels={common.categories}
                     categoryFallback={common.unknownCategory}
+                    viewDetailsLabel={common.viewDetails}
                   />
+                ))}
+              </div>
+            </AnimateOnScroll>
+
+          </div>
+        </section>
+      )}
+
+      {galleryGroups.length > 0 && (
+        <section className="py-20 px-4" style={{ backgroundColor: '#ede8e0' }}>
+          <div className="max-w-6xl mx-auto">
+            <AnimateOnScroll>
+              <SectionHeader
+                label={events.galleryLabel}
+                title={events.galleryTitle}
+                intro={events.galleryIntro}
+              />
+            </AnimateOnScroll>
+
+            <AnimateOnScroll stagger>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 mt-10">
+                {galleryGroups.map((group) => (
+                  <Link
+                    key={group.key}
+                    href={`/events/gallery/${group.routeSegment}`}
+                    className="group overflow-hidden rounded-2xl border bg-white shadow-sm transition-transform hover:-translate-y-1"
+                    style={{ borderColor: '#d4c8b4' }}
+                    aria-label={`${events.galleryCardAriaPrefix} ${events.galleryGroups[group.key]} ${events.galleryCardAriaSuffix}`}
+                  >
+                    <div className="relative aspect-[16/9] overflow-hidden bg-[#f5f0e8]">
+                      <Image
+                        src={group.images[0].src}
+                        alt={group.images[0].alt}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+
+                      <div className="absolute inset-x-0 bottom-0 p-5 md:p-6">
+                        <p className="font-serif text-2xl md:text-3xl font-semibold leading-tight text-white drop-shadow-sm">
+                          {events.galleryGroups[group.key]}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-between gap-3 p-5 md:p-6">
+                      <span className="text-sm text-gray-500">
+                        {events.galleryLabel}
+                      </span>
+                      <span
+                        className="inline-flex items-center gap-2 text-sm font-semibold"
+                        style={{ color: '#c8922a' }}
+                      >
+                        {events.galleryOpenCta}
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+                          <line x1="5" y1="12" x2="19" y2="12"/>
+                          <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                      </span>
+                    </div>
+                  </Link>
                 ))}
               </div>
             </AnimateOnScroll>

@@ -246,6 +246,23 @@ export const no = {
     "pastLabel": "Tidligere",
     "pastTitle": "Der vi har vært",
     "pastIntro": "Et tilbakeblikk på ARKs arrangementer og feiringer.",
+    "galleryLabel": "Bildegalleri",
+    "galleryTitle": "Øyeblikk vi har delt",
+    "galleryIntro": "Velg en gallerikategori for å se bilder fra ARKs samlinger og feiringer.",
+    "galleryOpenCta": "Åpne galleri",
+    "galleryBackToEvents": "Tilbake til arrangementer",
+    "galleryCategoryIntro": "En bildesamling fra denne ARK-gallerikategorien.",
+    "galleryCardAriaPrefix": "Åpne",
+    "galleryCardAriaSuffix": "galleri",
+    "galleryCloseLabel": "Lukk galleribilde",
+    "galleryPreviousLabel": "Forrige bilde",
+    "galleryNextLabel": "Neste bilde",
+    "galleryGroups": {
+      "onam": "Onam-samlinger",
+      "christmas": "Jul/Diwali-samlinger",
+      "easterVishuEid": "Påske/Vishu/Eid-samlinger",
+      "otherActivities": "Andre aktiviteter"
+    },
     "ctaTitle": "Vil du varsles om kommende arrangementer?",
     "ctaText": "Bli med i WhatsApp-fellesskapet vårt og følg oss på Facebook og Instagram.",
     "ctaButton": "Ta kontakt",
@@ -482,6 +499,7 @@ export const no = {
   },
   "common": {
     "facebook": "Facebook",
+    "viewDetails": "Se detaljer",
     "unknownCategory": "Fellesskap",
     "categories": {
       "Festival": "Festival",

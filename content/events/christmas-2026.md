@@ -18,17 +18,6 @@ Kerala has one of India's richest Christian communities, and Christmas is celebr
 
 - **Welcome and carols** — traditional Malayalam and English Christmas songs
 - **Cultural items** — skits, dances, and musical performances
-- **Secret Santa** — bring a wrapped gift (under 100 NOK) for the exchange
 - **Kerala Christmas feast** — enjoy dishes that bring home a little closer
-- **Games and prizes** for children
-
-## Practical Details
-
-- **Date:** Sunday, 20 December 2026
-- **Venue:** Kvernevik, Stavanger (exact address sent to registered attendees)
-- **Time:** 17:00 – 21:30
-- **Entry:** Free for all — bring the whole family
 
 This is an inclusive celebration open to all members of the ARK community, regardless of faith or background. Everyone is welcome to share in the warmth of the season.
-
-Register your interest via [arkeralites@gmail.com](mailto:arkeralites@gmail.com) or our WhatsApp group.

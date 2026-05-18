@@ -1,4 +1,4 @@
-//import Link from 'next/link'
+import Link from 'next/link'
 import type { ARKEvent } from '@/lib/events'
 import type { Locale } from '@/lib/i18n'
 import { formatEventMonthForLocale, getLocalizedEventCategory } from '@/lib/events'
@@ -10,6 +10,7 @@ interface EventCardProps {
   locale: Locale
   categoryLabels: Record<string, string>
   categoryFallback: string
+  viewDetailsLabel: string
 }
 
 const categoryColors: Record<string, string> = {
@@ -26,8 +27,9 @@ export default function EventCard({
   locale,
   categoryLabels,
   categoryFallback,
+  viewDetailsLabel,
 }: EventCardProps) {
-  const { title, date, venue, category, excerpt } = event
+  const { slug, title, date, venue, category, excerpt } = event
   const badgeClass = categoryColors[category] ?? 'bg-gray-100 text-gray-700'
   const month = formatEventMonthForLocale(date, locale)
   const localizedCategory = getLocalizedEventCategory(category, locale, categoryLabels, categoryFallback)
@@ -56,7 +58,13 @@ export default function EventCard({
 
         {/* Title */}
         <h3 className="font-serif text-2xl font-semibold leading-snug mb-2" style={{ color: '#1a3a2a' }}>
-          {title}
+          <Link
+            href={`/events/${slug}`}
+            className="transition-colors hover:opacity-80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 rounded-sm"
+            style={{ color: 'inherit' }}
+          >
+            {title}
+          </Link>
         </h3>
 
         {/* Venue */}
@@ -73,19 +81,18 @@ export default function EventCard({
           <FormattedInlineText text={excerpt} />
         </p>
 
-        {/* CTA */}
-        {/*<Link*/}
-        {/*  href={`/events/${slug}`}*/}
-        {/*  className="mt-5 inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:underline"*/}
-        {/*  style={{ color: muted ? '#6b7280' : '#c8922a' }}*/}
-        {/*  aria-label={`View details for ${title}`}*/}
-        {/*>*/}
-        {/*  View details*/}
-        {/*  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">*/}
-        {/*    <line x1="5" y1="12" x2="19" y2="12"/>*/}
-        {/*    <polyline points="12 5 19 12 12 19"/>*/}
-        {/*  </svg>*/}
-        {/*</Link>*/}
+        <Link
+          href={`/events/${slug}`}
+          className="mt-5 inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:underline underline-offset-2"
+          style={{ color: muted ? '#6b7280' : '#c8922a' }}
+          aria-label={`${viewDetailsLabel}: ${title}`}
+        >
+          {viewDetailsLabel}
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </Link>
       </div>
     </article>
   )
