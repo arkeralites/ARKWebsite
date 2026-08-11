@@ -12,6 +12,12 @@ export const localeDisplayNames: Record<Locale, string> = {
   ml: 'മലയാളം',
 }
 
+export const localeShortNames: Record<Locale, string> = {
+  en: 'EN',
+  no: 'NO',
+  ml: 'ML',
+}
+
 const localeLanguageTags: Record<Locale, readonly string[]> = {
   en: ['en'],
   no: ['no', 'nb', 'nn'],
