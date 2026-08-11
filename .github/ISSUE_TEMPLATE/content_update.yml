@@ -49,8 +49,17 @@ body:
       options:
         - English
         - Norwegian
+        - Malayalam
+        - All languages
     validations:
       required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        Note on languages: English and Norwegian must both be updated together —
+        the automatic checks fail if Norwegian is missing a value. Malayalam is
+        optional and falls back to English when a value is not provided.
 
   - type: textarea
     id: deadline
