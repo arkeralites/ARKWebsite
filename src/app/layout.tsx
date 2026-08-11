@@ -1,12 +1,13 @@
 import type { Metadata } from 'next'
 import { Analytics } from '@vercel/analytics/react'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
+import { Cormorant_Garamond, DM_Sans, Noto_Sans_Malayalam } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import { siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
+import { getOpenGraphLocale } from '@/lib/i18n'
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -20,6 +21,13 @@ const dmSans = DM_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-dm-sans',
+  display: 'swap',
+})
+
+const notoSansMalayalam = Noto_Sans_Malayalam({
+  subsets: ['malayalam'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-noto-sans-malayalam',
   display: 'swap',
 })
 
@@ -52,7 +60,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ],
     openGraph: {
       type: 'website',
-      locale: locale === 'no' ? 'nb_NO' : 'en_US',
+      locale: getOpenGraphLocale(locale),
       url: siteConfig.url,
       siteName: siteConfig.name,
       title: messages.seo.siteTitle,
@@ -60,8 +68,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: siteConfig.ogImage,
-          width: 1200,
-          height: 630,
+          width: siteConfig.ogImageWidth,
+          height: siteConfig.ogImageHeight,
           alt: siteConfig.name,
         },
       ],
@@ -87,9 +95,9 @@ export default async function RootLayout({
   const { locale, messages } = await getRequestI18n()
 
   return (
-    <html lang={locale} className={`${cormorant.variable} ${dmSans.variable}`}>
+    <html lang={locale} className={`${cormorant.variable} ${dmSans.variable} ${notoSansMalayalam.variable}`}>
       <body className="font-sans antialiased">
-        <Nav navMessages={messages.nav} />
+        <Nav locale={locale} navMessages={messages.nav} />
         {children}
         <Footer footerMessages={messages.footer} socialMessages={messages.common.socialLinks} />
         <Analytics />

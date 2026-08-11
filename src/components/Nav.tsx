@@ -4,13 +4,15 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import type { AppMessages } from '@/lib/i18n'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import type { AppMessages, Locale } from '@/lib/i18n'
 
 interface NavProps {
+  locale: Locale
   navMessages: AppMessages['nav']
 }
 
-export default function Nav({ navMessages }: NavProps) {
+export default function Nav({ locale, navMessages }: NavProps) {
   const pathname = usePathname()
   const [openPathname, setOpenPathname] = useState<string | null>(null)
   const [scrolled, setScrolled] = useState(false)
@@ -95,6 +97,9 @@ export default function Nav({ navMessages }: NavProps) {
               </Link>
             )
           })}
+          <div className="ml-3">
+            <LanguageSwitcher locale={locale} label={navMessages.languageLabel} />
+          </div>
           <Link
             href={joinHref}
             aria-current={pathname === '/contact' ? 'page' : undefined}
@@ -138,6 +143,13 @@ export default function Nav({ navMessages }: NavProps) {
           className="md:hidden px-4 pb-6 pt-2 flex flex-col gap-1"
           style={{ backgroundColor: 'rgba(26, 58, 42, 0.98)' }}
         >
+          <div className="px-4 py-3">
+            <LanguageSwitcher
+              locale={locale}
+              label={navMessages.languageLabel}
+              onLocaleChange={() => setOpenPathname(null)}
+            />
+          </div>
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href
             return (

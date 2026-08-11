@@ -43,14 +43,17 @@ export function getLocalizedCommitteeRole(role: string, locale: Locale): string 
     Styreleder: {
       en: 'Chairperson',
       no: 'Styreleder',
+      ml: 'അധ്യക്ഷൻ',
     },
     Nesteleder: {
       en: 'Vice Chair',
       no: 'Nestleder',
+      ml: 'ഉപാധ്യക്ഷൻ',
     },
     'Committee Member': {
       en: 'Committee Member',
       no: 'Komitémedlem',
+      ml: 'കമ്മിറ്റി അംഗം',
     },
   }
 

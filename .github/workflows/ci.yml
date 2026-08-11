@@ -1,0 +1,48 @@
+name: Checks
+
+# Runs on every pull request and on every push to main.
+#
+# Purpose: catch a broken change BEFORE it reaches kerala.no. If this workflow
+# shows a red X on a pull request, do not merge it — the live site is untouched
+# and safe until you do. See docs/project-handover.md, "When a check fails".
+#
+# This workflow needs no secrets and costs nothing on the GitHub free plan.
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Lint, types, and build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Check TypeScript types
+        run: npx tsc --noEmit
+
+      # Also validates every event file: a bad or impossible `date:` in
+      # content/events/*.md fails here with the filename in the message.
+      - name: Build
+        run: npm run build

@@ -21,7 +21,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-cormorant), Georgia, serif;
+    font-family: var(--font-cormorant), var(--font-noto-sans-malayalam), Georgia, serif;
     line-height: 1.15;
   }
 
@@ -95,7 +95,7 @@
 
   /* ─── Markdown prose overrides ─── */
   .ark-prose h2 {
-    font-family: var(--font-cormorant), Georgia, serif;
+    font-family: var(--font-cormorant), var(--font-noto-sans-malayalam), Georgia, serif;
     font-size: 1.75rem;
     font-weight: 600;
     color: #1a3a2a;
@@ -104,7 +104,7 @@
   }
 
   .ark-prose h3 {
-    font-family: var(--font-cormorant), Georgia, serif;
+    font-family: var(--font-cormorant), var(--font-noto-sans-malayalam), Georgia, serif;
     font-size: 1.35rem;
     font-weight: 600;
     color: #2d5c3e;
@@ -130,8 +130,9 @@
     line-height: 1.65;
   }
 
+  /* Darker gold: #c8922a only reaches 2.8:1 on white and fails WCAG AA. */
   .ark-prose a {
-    color: #c8922a;
+    color: #7d5915;
     text-decoration: underline;
     text-underline-offset: 3px;
   }

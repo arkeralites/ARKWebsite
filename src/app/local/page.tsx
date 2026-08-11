@@ -3,6 +3,9 @@ import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import type { AppMessages } from '@/lib/i18n'
+
+type LocalSectionItem = AppMessages['local']['sections'][number]
 
 export async function generateMetadata(): Promise<Metadata> {
   const { locale, messages } = await getRequestI18n()
@@ -53,7 +56,7 @@ export default async function LocalPage() {
 
           <AnimateOnScroll stagger>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-              {local.sections.map((section) => {
+              {local.sections.map((section: LocalSectionItem) => {
                 const tip = 'tip' in section ? section.tip : undefined
 
                 return (
