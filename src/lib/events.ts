@@ -30,7 +30,6 @@ const galleryGroupAltPrefixes: Record<EventGalleryGroupKey, string> = {
 export interface EventFrontmatter {
   title: string
   date: string
-  month: string
   venue: string
   category: string
   featured?: boolean
@@ -100,6 +99,34 @@ export function parseEventDate(dateString: string): Date {
   return new Date(Date.UTC(year, month - 1, day))
 }
 
+// Fails the build on a bad `date:` value instead of publishing a page that
+// silently reads "Invalid Date". The message names the file so a non-technical
+// maintainer can find and fix it. See docs/project-handover.md.
+function assertValidEventDate(dateString: unknown, fileName: string): string {
+  if (typeof dateString !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(dateString)) {
+    throw new Error(
+      `Invalid "date" in content/events/${fileName}: got ${JSON.stringify(dateString)}. ` +
+        'Use the format YYYY-MM-DD, in quotes — for example date: "2027-04-14".'
+    )
+  }
+
+  const [year, month, day] = dateString.split('-').map(Number)
+  const parsed = new Date(Date.UTC(year, month - 1, day))
+
+  // Catches dates that match the pattern but do not exist, e.g. 2026-13-45 or 2027-02-30.
+  if (
+    parsed.getUTCFullYear() !== year ||
+    parsed.getUTCMonth() !== month - 1 ||
+    parsed.getUTCDate() !== day
+  ) {
+    throw new Error(
+      `Invalid "date" in content/events/${fileName}: ${dateString} is not a real calendar date.`
+    )
+  }
+
+  return dateString
+}
+
 export function formatEventDateForLocale(dateString: string, locale: Locale): string {
   return parseEventDate(dateString).toLocaleDateString(getDateLocale(locale), {
     day: 'numeric',
@@ -141,10 +168,14 @@ export function getAllEvents(): ARKEvent[] {
       const slug = file.replace(/\.md$/, '')
       const raw = fs.readFileSync(path.join(EVENTS_DIR, file), 'utf-8')
       const { data, content } = matter(raw)
+      const frontmatter = data as EventFrontmatter
+
+      assertValidEventDate(frontmatter.date, file)
+
       return {
         slug,
         content,
-        ...(data as EventFrontmatter),
+        ...frontmatter,
       }
     })
     .sort((a, b) => parseEventDate(a.date).getTime() - parseEventDate(b.date).getTime())
@@ -184,6 +215,22 @@ export function getUpcomingEvents(): ARKEvent[] {
   const today = new Date()
   const todayUtc = Date.UTC(today.getUTCFullYear(), today.getUTCMonth(), today.getUTCDate())
   return getAllEvents().filter((e) => parseEventDate(e.date).getTime() >= todayUtc)
+}
+
+/**
+ * Upcoming events for the homepage preview.
+ *
+ * `featured: true` in an event's frontmatter pulls it to the front, so the
+ * committee can lead with the big one (Onam) even when a smaller event happens
+ * sooner. Within each group events stay in date order, soonest first.
+ */
+export function getFeaturedUpcomingEvents(limit: number): ARKEvent[] {
+  const upcoming = getUpcomingEvents()
+
+  return [
+    ...upcoming.filter((event) => event.featured === true),
+    ...upcoming.filter((event) => event.featured !== true),
+  ].slice(0, limit)
 }
 
 export function getPastEvents(): ARKEvent[] {

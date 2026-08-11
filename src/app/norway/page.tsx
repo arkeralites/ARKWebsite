@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
-import { generatePageMetadata } from '@/lib/metadata'
+import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+import type { AppMessages } from '@/lib/i18n'
+
+type NorwaySectionItem = AppMessages['norway']['sections'][number]
+type NorwaySectionLinkItem = NorwaySectionItem['links'][number]
 
 export async function generateMetadata(): Promise<Metadata> {
   const { locale, messages } = await getRequestI18n()
@@ -49,11 +53,11 @@ export default async function NorwayPage() {
               <p className="text-sm leading-relaxed" style={{ color: '#1a3a2a' }}>
                 <strong>{norway.noteTitle}</strong> {norway.noteBeforeEmail}{' '}
                 <a
-                  href="mailto:arkeralites@gmail.com"
+                  href={`mailto:${siteConfig.contact.email}`}
                   className="underline font-medium"
-                  style={{ color: '#c8922a' }}
+                  style={{ color: '#7d5915' }}
                 >
-                  arkeralites@gmail.com
+                  {siteConfig.contact.email}
                 </a>
                 {' '}{norway.noteAfterEmail}
               </p>
@@ -79,7 +83,7 @@ export default async function NorwayPage() {
 
           <AnimateOnScroll stagger>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
-              {norway.sections.map((section) => {
+              {norway.sections.map((section: NorwaySectionItem) => {
                 const links = 'links' in section ? section.links : undefined
 
                 return (
@@ -103,7 +107,7 @@ export default async function NorwayPage() {
                         <p className="text-gray-600 text-sm leading-relaxed">{section.description}</p>
                         {links && links.length > 0 && (
                           <div className="flex flex-wrap gap-2 mt-4">
-                            {links.map(({ label, href }) => (
+                            {links.map(({ label, href }: NorwaySectionLinkItem) => (
                               <a
                                 key={label}
                                 href={href}
@@ -146,7 +150,7 @@ export default async function NorwayPage() {
               {norway.ctaText}
             </p>
             <a
-              href="mailto:arkeralites@gmail.com"
+              href={`mailto:${siteConfig.contact.email}`}
               className="inline-block mt-6 px-8 py-3.5 rounded-xl font-semibold text-white transition-all hover:opacity-90"
               style={{ backgroundColor: '#c8922a' }}
             >

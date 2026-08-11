@@ -26,8 +26,6 @@ export async function generateMetadata(): Promise<Metadata> {
   )
 }
 
-export const revalidate = 86400
-
 // Colour pairs for initials avatars — cycles through based on index
 const avatarColours = [
   { bg: '#c8922a', text: '#fff' },       // gold
@@ -80,7 +78,7 @@ function MemberCard({
       {/* Role */}
       <span
         className="mt-2 text-sm font-medium px-3 py-1 rounded-full"
-        style={{ backgroundColor: 'rgba(200,146,42,0.1)', color: '#c8922a' }}
+        style={{ backgroundColor: 'rgba(200,146,42,0.1)', color: '#7d5915' }}
       >
         {getLocalizedCommitteeRole(member.role, locale)}
       </span>
@@ -157,7 +155,7 @@ export default async function CommitteePage() {
               <div className="mt-10 text-center">
                   <span
                       className="font-serif text-2xl md:text-2xl uppercase tracking-[0.2em] font-semibold"
-                      style={{ color: '#c8922a' }}
+                      style={{ color: '#7d5915' }}
                   >
                     {committee.termPrefix} {committeeTermLabel}
                   </span>
@@ -226,12 +224,6 @@ export default async function CommitteePage() {
               className="rounded-2xl border px-5 py-5 md:px-6 md:py-6 text-center shadow-sm"
               style={{ backgroundColor: 'rgba(255,255,255,0.88)', borderColor: '#d4c8b4' }}
             >
-              {/*<span*/}
-              {/*  className="inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em]"*/}
-              {/*  style={{ backgroundColor: 'rgba(200,146,42,0.12)', color: '#c8922a' }}*/}
-              {/*>*/}
-              {/*  {committee.noteLabel}*/}
-              {/*</span>*/}
               <p className="mt-4 text-sm md:text-base leading-relaxed" style={{ color: '#5f5f5f' }}>
                 {committee.noteText}
               </p>

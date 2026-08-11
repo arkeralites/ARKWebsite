@@ -12,10 +12,6 @@ export const en = {
     "closeMenu": "Close menu",
     "homeAria": "ARK — Association of Rogaland Keralites, go to homepage",
     "languageLabel": "Language",
-    "shortLabels": {
-      "en": "EN",
-      "no": "NO"
-    },
     "mainNavigationAria": "Main navigation",
     "logoAlt": "ARK logo"
   },
@@ -69,7 +65,7 @@ export const en = {
         "label": "Based in"
       },
       {
-        "value": "All",
+        "value": "200+",
         "label": "Open to all Keralites"
       }
     ],
@@ -200,8 +196,7 @@ export const en = {
     "ctaTitle": "Want to shape our community's future?",
     "ctaText": "Whether you want to pitch a fresh event idea, have questions about our operations —we’d absolutely love to hear from you.",
     "ctaButton": "Say Hello to the Board",
-    "noteLabel": "Note",
-    "noteText": "**Elections are held at the General Assembly during Onam: annually for Committee Members, and every two years for Executive Office Bearers.**",
+    "noteText": "Elections are held at the General Assembly during Onam: annually for Committee Members, and every two years for Executive Office Bearers.",
     "aria": {
       "hero": "Committee page hero",
       "executive": "Executive committee",
@@ -270,6 +265,14 @@ export const en = {
       "past": "Past events",
       "cta": "Join community"
     }
+  },
+  "notFound": {
+    "label": "Page not found",
+    "title": "This page has moved or never existed",
+    "text": "The link may be out of date, or there might be a typo in the address. Here are the pages people look for most.",
+    "homeCta": "Go to the homepage",
+    "linksTitle": "Popular pages",
+    "aria": "Page not found"
   },
   "eventDetail": {
     "allEvents": "All Events",

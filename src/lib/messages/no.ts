@@ -14,10 +14,6 @@ export const no = {
     "closeMenu": "Lukk meny",
     "homeAria": "ARK — Association of Rogaland Keralites, gå til startsiden",
     "languageLabel": "Språk",
-    "shortLabels": {
-      "en": "EN",
-      "no": "NO"
-    },
     "mainNavigationAria": "Hovednavigasjon",
     "logoAlt": "ARK-logo"
   },
@@ -202,7 +198,6 @@ export const no = {
     "ctaTitle": "Vil du komme i kontakt med komiteen?",
     "ctaText": "Ta kontakt hvis du har spørsmål eller vil engasjere deg",
     "ctaButton": "Bli med",
-    "noteLabel": "Merk",
     "noteText": "Komitémedlemmer velges årlig, og de tillitsvalgte i styret velges hvert andre år på generalforsamlingen (Onam).",
     "aria": {
       "hero": "Komitésidens helteseksjon",
@@ -272,6 +267,14 @@ export const no = {
       "past": "Tidligere arrangementer",
       "cta": "Bli med i fellesskapet"
     }
+  },
+  "notFound": {
+    "label": "Siden finnes ikke",
+    "title": "Denne siden er flyttet eller har aldri funnes",
+    "text": "Lenken kan være utdatert, eller det kan være en skrivefeil i adressen. Her er sidene folk oftest ser etter.",
+    "homeCta": "Gå til forsiden",
+    "linksTitle": "Populære sider",
+    "aria": "Siden finnes ikke"
   },
   "eventDetail": {
     "allEvents": "Alle arrangementer",

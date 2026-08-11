@@ -1,7 +1,6 @@
 ---
 title: "Kids Day 2026"
 date: "2026-06-14"
-month: "June 2026"
 venue: "LuraHallen, Sandnes"
 category: "Family"
 featured: true

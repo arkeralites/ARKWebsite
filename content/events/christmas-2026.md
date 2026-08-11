@@ -1,7 +1,6 @@
 ---
 title: "ARK Christmas Celebration 2026"
 date: "2026-12-20"
-month: "December 2026"
 venue: "Kvernevik Bydelshus, Stavanger"
 category: "Celebration"
 featured: false
