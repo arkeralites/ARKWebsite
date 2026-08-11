@@ -84,7 +84,7 @@ export default function EventCard({
         <Link
           href={`/events/${slug}`}
           className="mt-5 inline-flex items-center gap-1 text-sm font-semibold transition-colors hover:underline underline-offset-2"
-          style={{ color: muted ? '#6b7280' : '#c8922a' }}
+          style={{ color: muted ? '#6b7280' : '#7d5915' }}
           aria-label={`${viewDetailsLabel}: ${title}`}
         >
           {viewDetailsLabel}

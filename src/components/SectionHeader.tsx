@@ -19,7 +19,10 @@ export default function SectionHeader({
     <div className={center ? 'text-center' : ''}>
       <span
         className="text-xs uppercase tracking-[0.2em] font-semibold"
-        style={{ color: '#c8922a' }}
+        // Gold #c8922a only reaches 2.8:1 on the cream page backgrounds, which
+        // fails WCAG AA for text this small. Use the darker gold on light
+        // sections and the lighter gold on dark ones.
+        style={{ color: light ? '#e8b84b' : '#7d5915' }}
       >
         {label}
       </span>

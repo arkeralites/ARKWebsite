@@ -63,7 +63,7 @@ export default async function EventGalleryCategoryPage({ params }: PageProps) {
             <Link
               href="/events"
               className="inline-flex items-center gap-2 text-sm font-semibold hover:underline underline-offset-2"
-              style={{ color: '#c8922a' }}
+              style={{ color: '#7d5915' }}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
                 <line x1="19" y1="12" x2="5" y2="12"/>

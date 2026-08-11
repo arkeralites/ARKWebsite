@@ -4,6 +4,11 @@ import { getRequestI18n } from '@/lib/i18n-server'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
 import FormattedInlineText from '@/components/FormattedInlineText'
+import type { AppMessages } from '@/lib/i18n'
+
+type AboutTimelineItem = AppMessages['about']['timeline'][number]
+type AboutMissionItem = AppMessages['about']['missionList'][number]
+type AboutValueItem = AppMessages['about']['values'][number]
 
 export async function generateMetadata(): Promise<Metadata> {
   const { locale, messages } = await getRequestI18n()
@@ -60,7 +65,7 @@ export default async function AboutPage() {
             />
 
             <div className="space-y-10">
-              {about.timeline.map((item, i) => (
+              {about.timeline.map((item: AboutTimelineItem, i: number) => (
                 <AnimateOnScroll key={item.year} delay={i * 100}>
                   <div className="flex gap-6 items-start">
                     {/* Year badge */}
@@ -115,7 +120,7 @@ export default async function AboutPage() {
 
           <AnimateOnScroll delay={150}>
             <ul className="space-y-4 mt-8 md:mt-16">
-              {about.missionList.map((item) => (
+              {about.missionList.map((item: AboutMissionItem) => (
                 <li key={item} className="flex gap-3 items-start">
                   <span
                     className="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
@@ -148,7 +153,7 @@ export default async function AboutPage() {
       >
         <div className="max-w-3xl mx-auto">
           <AnimateOnScroll>
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{ color: '#c8922a' }}>
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold" style={{ color: '#7d5915' }}>
               {about.visionLabel}
             </span>
             <h2 className="font-serif text-4xl md:text-5xl font-semibold mt-3 leading-tight" style={{ color: '#1a3a2a' }}>
@@ -173,7 +178,7 @@ export default async function AboutPage() {
           </AnimateOnScroll>
           <AnimateOnScroll stagger>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-              {about.values.map(({ icon, title, description }) => (
+              {about.values.map(({ icon, title, description }: AboutValueItem) => (
                 <div
                   key={title}
                   className="rounded-2xl p-6 text-center card-hover"

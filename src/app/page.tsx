@@ -1,12 +1,15 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import { getUpcomingEvents } from '@/lib/events'
+import { getFeaturedUpcomingEvents } from '@/lib/events'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
+import type { AppMessages } from '@/lib/i18n'
 import EventCard from '@/components/EventCard'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
+
+type HomeStatItem = AppMessages['home']['stats'][number]
 
 export async function generateMetadata(): Promise<Metadata> {
   const { locale, messages } = await getRequestI18n()
@@ -22,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function HomePage() {
   const { locale, messages } = await getRequestI18n()
   const { home, common } = messages
-  const upcomingEvents = getUpcomingEvents().slice(0, 3)
+  const upcomingEvents = getFeaturedUpcomingEvents(3)
   const stats = home.stats
   const joinHref = { pathname: '/contact', hash: 'join' } as const
 
@@ -104,7 +107,7 @@ export default async function HomePage() {
 
         {/* Stats row */}
         <dl className="relative mt-16 w-full max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 px-4">
-          {stats.map(({ value, label }) => (
+          {stats.map(({ value, label }: HomeStatItem) => (
             <div key={label} className="flex flex-col-reverse items-center text-center">
               <dt className="text-white/55 text-xs mt-1 uppercase tracking-wider">{label}</dt>
               <dd
@@ -142,7 +145,7 @@ export default async function HomePage() {
               <Link
                 href="/events"
                 className="shrink-0 text-sm font-semibold flex items-center gap-1 hover:underline underline-offset-2"
-                style={{ color: '#c8922a' }}
+                style={{ color: '#7d5915' }}
               >
                 {home.upcoming.seeAll}
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
@@ -177,7 +180,7 @@ export default async function HomePage() {
                   <a
                     href={siteConfig.social.facebookGroupUrl}
                     className="underline"
-                    style={{ color: '#c8922a' }}
+                    style={{ color: '#7d5915' }}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

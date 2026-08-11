@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import type { Locale } from './i18n'
+import { getOpenGraphLocale, type Locale } from './i18n'
 
 export const siteConfig = {
   name: 'ARK — Association of Rogaland Keralites',
@@ -9,7 +9,13 @@ export const siteConfig = {
   appleIcon: '/apple-touch-icon.png',
   description:
     'A home away from home for Keralites in Stavanger, Sandnes and Rogaland, Norway. ARK brings together the Kerala community through culture, support, and celebration.',
-  ogImage: 'https://kerala.no/images/arklogo.jpg',
+  // Link-preview image for Facebook, WhatsApp, X, LinkedIn etc. MUST stay
+  // 1200x630 (1.91:1) to match the dimensions declared in the metadata below —
+  // the old value was the 1180x756 logo declared as 1200x630, so previews
+  // cropped it. Regenerate at the same size if the branding changes.
+  ogImage: 'https://kerala.no/images/ark-share-card.jpg',
+  ogImageWidth: 1200,
+  ogImageHeight: 630,
   contact: {
     email: 'arkeralites@gmail.com',
     location: 'Sandnes, Rogaland, Norway',
@@ -42,12 +48,12 @@ export function generatePageMetadata(
       images: [
         {
           url: siteConfig.ogImage,
-          width: 1200,
-          height: 630,
+          width: siteConfig.ogImageWidth,
+          height: siteConfig.ogImageHeight,
           alt: siteConfig.name,
         },
       ],
-      locale: locale === 'no' ? 'nb_NO' : 'en_US',
+      locale: getOpenGraphLocale(locale),
       type: 'website',
     },
     twitter: {
