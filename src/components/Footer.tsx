@@ -1,15 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import type { AppMessages } from '@/lib/i18n'
+import FooterLanguageToggle from '@/components/FooterLanguageToggle'
+import type { AppMessages, Locale } from '@/lib/i18n'
 import { siteConfig } from '@/lib/metadata'
 import { socialLinkDefinitions } from '@/lib/social-links'
 
 interface FooterProps {
+  locale: Locale
   footerMessages: AppMessages['footer']
+  languageLabel: AppMessages['nav']['languageLabel']
   socialMessages: AppMessages['common']['socialLinks']
 }
 
-export default function Footer({ footerMessages, socialMessages }: FooterProps) {
+export default function Footer({ locale, footerMessages, languageLabel, socialMessages }: FooterProps) {
   const joinHref = { pathname: '/contact', hash: 'join' } as const
   const quickLinks = [
     { href: '/', label: footerMessages.links.home },
@@ -132,14 +135,20 @@ export default function Footer({ footerMessages, socialMessages }: FooterProps) 
               )
             })}
           </div>
+
         </div>
       </div>
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-white/35">
-          <p>© {new Date().getFullYear()} {footerMessages.rights}</p>
-          <p>{footerMessages.builtWith}</p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/35">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:justify-start">
+            <p>{footerMessages.rightsReserved} © {new Date().getFullYear()} {footerMessages.rights}</p>
+          </div>
+          <FooterLanguageToggle locale={locale} label={languageLabel} />
+          <div className="text-center sm:text-right">
+            <p>{footerMessages.builtWith}</p>
+          </div>
         </div>
       </div>
     </footer>

@@ -21,12 +21,13 @@ export const no = {
     "quickLinks": "Hurtiglenker",
     "getInTouch": "Ta kontakt",
     "joinArk": "Bli med i ARK",
+    "rightsReserved": "Alle rettigheter forbeholdt ",
     "ariaLabel": "Nettstedsbunntekst",
     "logoAlt": "ARK-logo",
     "brandSubtitle": "Foreningen av Rogalands keralitter",
     "brandDescription": "Siden 2009 har vi brakt ånden fra Guds eget land til fjordenes land. Et fellesskap av keralitter samlet gjennom kultur, vennskap og støtte.",
     "contactLocation": "Rogaland, Norge",
-    "builtWith": "Laget med ❤️ for det malayaliske fellesskapet i Rogaland",
+    "builtWith": "Laget med ❤️ for keralasamfunnet i Rogaland.",
     "rights": "ARK — Association of Rogaland Keralites",
     "orgNumberLabel": "Org.nr.",
     "links": {
@@ -40,14 +41,13 @@ export const no = {
   "emailCard": {
     "intro": "Den enkleste måten å kontakte ARK på er via e-post. Klikk på knappen nedenfor, så åpnes e-postappen din med en ny melding til oss.",
     "button": "Send e-post til ARK",
-    "directPrefix": "Eller send oss e-post direkte på",
-    "subject": "Kontakt fra ARK-nettstedet"
+    "directPrefix": "Eller send oss e-post direkte på"
   },
   "home": {
     "bannerAlt": "ARK — Association of Rogaland Keralites: Kerala-bakvann, kulturinnslag og ARK-logoen",
     "heroTag": "Association of Rogaland Keralites - etablert 2009",
     "heroTitleTop": "Kobler",
-    "heroTitleBottom": "til fjordenes eget land",
+    "heroTitleBottom": "fjordenes eget land",
     "heroHighlightTop": "Guds eget land",
     "heroConnector": "til",
     "heroText": "Et hjem borte fra hjemmet for keralitter i hele Rogaland. Kultur, fellesskap og litt av Kerala — midt i Norge.",
@@ -91,8 +91,7 @@ export const no = {
       "label": "For nyankomne",
       "title": "Ny i Norge? Vi hjelper deg.",
       "intro": "Det er krevende å flytte til et nytt land. ARK-medlemmer har vært gjennom det. Vi har laget en praktisk guide om helse, bolig, NAV, skole, bank og mer.",
-      "guide": "Guide for ny i Norge",
-      "localLife": "Kerala-liv i Rogaland"
+      "guide": "Guide for ny i Norge"
     },
     "aria": {
       "banner": "ARK-banner",
@@ -177,17 +176,17 @@ export const no = {
     }
   },
   "committee": {
-    "heroLabel": "ARK-ledelse",
+    "heroLabel": "ARK-komiteen",
     "heroTitle": "Møt komiteen",
-    "heroText": "ARK drives utelukkende av frivillige fra Kerala-fellesskapet i Rogaland. Dette er menneskene som bruker tiden sin på å holde fellesskapet samlet.",
+    "heroText": "ARK drives av frivillige fra Kerala-fellesskapet i Rogaland. Her er menneskene som bruker tid og engasjement på å holde fellesskapet samlet.",
     "executiveLabel": "Styret",
-    "executiveTitle": "Tillitsvalgte",
-    "executiveIntro": "De valgte lederne som styrer ARK og har ansvar for organisasjonens aktivitet og drift.",
+    "executiveTitle": "Styremedlemmer",
+    "executiveIntro": "De valgte styremedlemmene som leder ARK og har ansvar for organisasjonens aktiviteter og drift.",
     "membersLabel": "Komité",
     "membersTitle": "Komitémedlemmer",
     "membersIntro": "Frivillige som støtter styret i å organisere arrangementer og aktiviteter i fellesskapet.",
     "termPrefix": "ARK-komité",
-    "workTitle": "Hva komiteen jobber med",
+    "workTitle": "Dette arbeider komiteen med",
     "highlights": [
       "Organiserer ARK-festivaler, familiesamlinger og kulturelle feiringer gjennom året.",
       "Støtter nyankomne i Rogaland med praktisk veiledning og nettverk.",
@@ -198,11 +197,11 @@ export const no = {
     "ctaTitle": "Vil du komme i kontakt med komiteen?",
     "ctaText": "Ta kontakt hvis du har spørsmål eller vil engasjere deg",
     "ctaButton": "Bli med",
-    "noteText": "Komitémedlemmer velges årlig, og de tillitsvalgte i styret velges hvert andre år på generalforsamlingen (Onam).",
+    "noteText": "Komitémedlemmer velges hvert år, og styret velges annethvert år på generalforsamlingen under Onam.",
     "aria": {
-      "hero": "Komitésidens helteseksjon",
+      "hero": "Helteseksjon for komitésiden",
       "executive": "Styret",
-      "members": "Generelle komitémedlemmer",
+      "members": "Komitémedlemmer",
       "cta": "Kom i kontakt med komiteen"
     }
   },
@@ -212,7 +211,6 @@ export const no = {
     "heroText": "Enten du vil bli med i ARK, spørre om arrangementer eller trenger hjelp til å finne deg til rette i Norge — vi er her.",
     "sectionLabel": "Kontakt ARK",
     "sectionTitle": "Nå oss direkte",
-    "joinTitle": "Bli med i ARK",
     "joinSubject": "Jeg vil gjerne bli med i ARK",
     "detailLabels": {
       "email": "E-post",
@@ -222,7 +220,6 @@ export const no = {
     "followTitle": "Følg ARK",
     "orgText": "ARK er en registrert ideell organisasjon i Norge.",
     "memberText": "Medlemskap er åpent for alle keralitter som bor i Rogaland og familiene deres.",
-    "emailUsTitle": "Send oss e-post direkte",
     "aria": {
       "hero": "Kontakt-helteseksjon",
       "details": "Kontaktdetaljer"
@@ -479,8 +476,8 @@ export const no = {
         "description": "Lær mer om Association of Rogaland Keralites — historien vår, oppdraget vårt, visjonen vår og verdiene våre siden 2009."
       },
       "committee": {
-        "title": "Komité",
-        "description": "Møt ARK-komiteen — de frivillige som organiserer arrangementer, støtter nyankomne og holder Kerala-fellesskapet i Rogaland levende."
+        "title": "Komiteen",
+        "description": "Møt ARKs komité — de frivillige som organiserer arrangementer, støtter nyankomne og holder Kerala-fellesskapet i Rogaland levende."
       },
       "contact": {
         "title": "Kontakt",

@@ -19,6 +19,7 @@ export const en = {
     "quickLinks": "Quick Links",
     "getInTouch": "Get in Touch",
     "joinArk": "Join ARK",
+    "rightsReserved": "All rights reserved ",
     "ariaLabel": "Site footer",
     "logoAlt": "ARK logo",
     "brandSubtitle": "Association of Rogaland Keralites",
@@ -38,8 +39,7 @@ export const en = {
   "emailCard": {
     "intro": "The easiest way to reach ARK is by email. Click the button below and your mail app will open a new message to us.",
     "button": "Email ARK",
-    "directPrefix": "Or email us directly at",
-    "subject": "Contact from ARK website"
+    "directPrefix": "Or email us directly at"
   },
   "home": {
     "bannerAlt": "ARK — Association of Rogaland Keralites: Kerala backwaters, cultural performers, and the ARK logo",
@@ -89,8 +89,7 @@ export const en = {
       "label": "For Newcomers",
       "title": "New to Norway? We've got you.",
       "intro": "Moving across the world is a massive leap, but you don't have to navigate it alone. Our community has distilled years of local experience into an easy guide covering healthcare, housing, banking, and schools. Let us handle the complicated stuff so you can settle in smoothly.",
-      "guide": "Get the Newcomer Guide",
-      "localLife": "Explore Community Life"
+      "guide": "Get the Newcomer Guide"
     },
     "aria": {
       "banner": "ARK banner",
@@ -210,7 +209,6 @@ export const en = {
     "heroText": "Whether you want to join ARK, ask about events, or just need someone to help you navigate Norway — we're here.",
     "sectionLabel": "Contact ARK",
     "sectionTitle": "Reach us directly",
-    "joinTitle": "Join ARK",
     "joinSubject": "I'd like to join ARK",
     "detailLabels": {
       "email": "Email",
@@ -220,7 +218,6 @@ export const en = {
     "followTitle": "Follow ARK",
     "orgText": "ARK is a registered non-profit organisation in Norway.",
     "memberText": "Membership is open to all Keralites living in Rogaland and their families.",
-    "emailUsTitle": "Email us directly",
     "aria": {
       "hero": "Contact hero",
       "details": "Contact details"

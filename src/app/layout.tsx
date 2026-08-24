@@ -5,6 +5,7 @@ import { Cormorant_Garamond, DM_Sans, Noto_Sans_Malayalam } from 'next/font/goog
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import FloatingLanguageSwitcher from '@/components/FloatingLanguageSwitcher'
 import { siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
 import { getOpenGraphLocale } from '@/lib/i18n'
@@ -99,7 +100,13 @@ export default async function RootLayout({
       <body className="font-sans antialiased">
         <Nav locale={locale} navMessages={messages.nav} />
         {children}
-        <Footer footerMessages={messages.footer} socialMessages={messages.common.socialLinks} />
+        <Footer
+          locale={locale}
+          footerMessages={messages.footer}
+          languageLabel={messages.nav.languageLabel}
+          socialMessages={messages.common.socialLinks}
+        />
+        <FloatingLanguageSwitcher locale={locale} label={messages.nav.languageLabel} />
         <Analytics />
         <SpeedInsights />
       </body>
