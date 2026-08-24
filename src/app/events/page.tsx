@@ -4,6 +4,11 @@ import Link from 'next/link'
 import { generatePageMetadata, siteConfig } from '@/lib/metadata'
 import { getRequestI18n } from '@/lib/i18n-server'
 import { getAllEventGalleryGroups, getUpcomingEvents, getPastEvents } from '@/lib/events'
+import {
+  formatMalayalamCalendarDate,
+  getLocalizedNakshatra,
+  getTodayMalayalamCalendar,
+} from '@/lib/malayalam-calendar'
 import EventCard from '@/components/EventCard'
 import SectionHeader from '@/components/SectionHeader'
 import AnimateOnScroll from '@/components/AnimateOnScroll'
@@ -25,6 +30,7 @@ export default async function EventsPage() {
   const upcoming = getUpcomingEvents()
   const past = getPastEvents()
   const galleryGroups = getAllEventGalleryGroups()
+  const todayMalayalamCalendar = getTodayMalayalamCalendar()
 
   return (
     <main className="pt-16">
@@ -50,6 +56,13 @@ export default async function EventsPage() {
         aria-label={events.aria.upcoming}
       >
         <div className="max-w-6xl mx-auto">
+          <AnimateOnScroll>
+            <div className="text-sm text-right" style={{ color: '#7d5915' }}>
+              <p>{formatMalayalamCalendarDate(todayMalayalamCalendar, locale)}</p>
+              <p className="mt-1">{getLocalizedNakshatra(todayMalayalamCalendar, locale)}</p>
+            </div>
+          </AnimateOnScroll>
+
           <AnimateOnScroll>
             <SectionHeader
               label={events.upcomingLabel}

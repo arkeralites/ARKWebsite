@@ -5,7 +5,6 @@ import { useEffect, useId, useRef, useState, useTransition } from 'react'
 import {
   localeCookieName,
   localeDisplayNames,
-  localeShortNames,
   locales,
   type Locale,
 } from '@/lib/i18n'
@@ -18,12 +17,14 @@ interface LanguageSwitcherProps {
   locale: Locale
   label: string
   onLocaleChange?: (locale: Locale) => void
+  dropdownDirection?: 'up' | 'down'
 }
 
 export default function LanguageSwitcher({
   locale,
   label,
   onLocaleChange,
+  dropdownDirection = 'down',
 }: LanguageSwitcherProps) {
   const router = useRouter()
   const listboxId = useId()
@@ -84,7 +85,7 @@ export default function LanguageSwitcher({
           aria-controls={listboxId}
           className={`flex w-full items-center justify-between rounded-lg border border-white/10 bg-white/5 py-2 pl-3 pr-3 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#e8b84b] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a3a2a] ${isPending ? 'cursor-wait opacity-70' : ''}`}
         >
-          <span>{localeShortNames[locale]}</span>
+          <span>{localeDisplayNames[locale]}</span>
           <svg
             className={`h-4 w-4 text-white/75 transition-transform ${isOpen ? 'rotate-180' : ''}`}
             viewBox="0 0 20 20"
@@ -102,7 +103,7 @@ export default function LanguageSwitcher({
             id={listboxId}
             role="listbox"
             aria-label={label}
-            className="absolute right-0 z-50 mt-2 w-full overflow-hidden rounded-lg border border-white/10 bg-[#1a3a2a] shadow-lg"
+            className={`absolute right-0 z-50 w-full overflow-hidden rounded-lg border border-white/10 bg-[#1a3a2a] shadow-lg ${dropdownDirection === 'up' ? 'bottom-full mb-2' : 'mt-2'}`}
           >
             {locales.map((option) => {
               const isSelected = option === locale

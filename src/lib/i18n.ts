@@ -18,6 +18,8 @@ export const localeShortNames: Record<Locale, string> = {
   ml: 'ML',
 }
 
+export const localeSwitchOrder: readonly Locale[] = ['en', 'ml', 'no']
+
 const localeLanguageTags: Record<Locale, readonly string[]> = {
   en: ['en'],
   no: ['no', 'nb', 'nn'],
