@@ -59,8 +59,16 @@ function loadPanchangModule(): { Panchang: new () => Panchang } {
   return runtimeRequire('malayalam-panchangam') as { Panchang: new () => Panchang }
 }
 
-const { Panchang: PanchangRuntime } = loadPanchangModule()
-const panchang = new PanchangRuntime()
+function createPanchangInstance(): Panchang | null {
+  try {
+    const { Panchang: PanchangRuntime } = loadPanchangModule()
+    return new PanchangRuntime()
+  } catch {
+    return null
+  }
+}
+
+const panchang = createPanchangInstance()
 
 export interface MalayalamCalendarDay {
   gregorianDate: Date
@@ -114,7 +122,11 @@ function normalizeDay(result: PanchangResult, gregorianDate: Date): MalayalamCal
   }
 }
 
-export function getTodayMalayalamCalendar(referenceDate = getNowInKerala()): MalayalamCalendarDay {
+export function getTodayMalayalamCalendar(referenceDate = getNowInKerala()): MalayalamCalendarDay | null {
+  if (!panchang) {
+    return null
+  }
+
   return normalizeDay(panchang.calculate(referenceDate, KERALA_LOCATION), referenceDate)
 }
 

@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  outputFileTracingIncludes: {
+    '/*': ['./node_modules/malayalam-panchangam/**/*'],
+  },
   async redirects() {
     return [
       {

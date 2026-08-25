@@ -56,12 +56,14 @@ export default async function EventsPage() {
         aria-label={events.aria.upcoming}
       >
         <div className="max-w-6xl mx-auto">
-          <AnimateOnScroll>
-            <div className="text-sm text-right" style={{ color: '#7d5915' }}>
-              <p>{formatMalayalamCalendarDate(todayMalayalamCalendar, locale)}</p>
-              <p className="mt-1">{getLocalizedNakshatra(todayMalayalamCalendar, locale)}</p>
-            </div>
-          </AnimateOnScroll>
+          {todayMalayalamCalendar && (
+            <AnimateOnScroll>
+              <div className="text-sm text-right" style={{ color: '#7d5915' }}>
+                <p>{formatMalayalamCalendarDate(todayMalayalamCalendar, locale)}</p>
+                <p className="mt-1">{getLocalizedNakshatra(todayMalayalamCalendar, locale)}</p>
+              </div>
+            </AnimateOnScroll>
+          )}
 
           <AnimateOnScroll>
             <SectionHeader
