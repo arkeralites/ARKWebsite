@@ -98,7 +98,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} className={`${cormorant.variable} ${dmSans.variable} ${notoSansMalayalam.variable}`}>
       <body className="font-sans antialiased">
-        <Nav locale={locale} navMessages={messages.nav} />
+        <Nav navMessages={messages.nav} />
         {children}
         <Footer
           locale={locale}
