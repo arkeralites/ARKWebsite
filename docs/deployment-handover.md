@@ -14,6 +14,10 @@ about **ownership and plumbing**.
 - contributors keep using their **own personal GitHub accounts**
 - everything runs on the **free** plan
 
+In other words: the repository stays under the ARK GitHub organisation, but day-
+to-day edits, commits and pushes are done from each maintainer's own GitHub
+account after that account has been given access.
+
 ## Two workflows, doing different jobs
 
 | File | Trigger | What it does |
@@ -96,6 +100,10 @@ Log in to the **ARK-owned** Vercel account:
 5. Note that `www.kerala.no` → `kerala.no` redirection is handled in application
    code, in `next.config.mjs`, not in Vercel settings.
 
+For clarity: the `kerala.no` domain registration and DNS are managed at
+`one.com`, not in Vercel. Vercel hosts the site, but `one.com` is the account
+that keeps control of the domain name itself.
+
 ## Who should have access
 
 At least **two** current office bearers or web admins for each of:
@@ -109,7 +117,7 @@ At least **two** current office bearers or web admins for each of:
 
 - [ ] confirm who owns the GitHub repository
 - [ ] confirm who owns the Vercel project
-- [ ] confirm who owns the domain and DNS, and its renewal date
+- [ ] confirm who owns the `one.com` domain / DNS account, and its renewal date
 - [ ] confirm which deployment path is active and that it produces one deployment
 - [ ] confirm the three `VERCEL_*` secrets exist and belong to ARK
 - [ ] confirm branch protection still requires the Checks workflow

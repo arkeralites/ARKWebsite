@@ -33,8 +33,8 @@ export default async function HomePage() {
     <main>
       {/* ── ARK Banner ─────────────────────────────────────────────────────────── */}
       <section className="pt-16 w-full" aria-label={home.aria.banner}>
-        {/* Controlled-height banner: h-40 mobile → h-64 desktop, image cropped to fill */}
-        <div className="relative w-full h-44 sm:h-56 md:h-64 lg:h-80">
+        {/* Controlled-height banner with balanced responsive heights */}
+        <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-[28rem] xl:h-[32rem]">
           <Image
             src="/images/ark-banner.jpg"
             alt={home.bannerAlt}

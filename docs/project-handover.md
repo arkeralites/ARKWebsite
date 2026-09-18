@@ -76,6 +76,23 @@ not need to install Node.js, an editor, or anything else.**
 You need a free GitHub account, added to the `arkeralites` organisation by a
 current maintainer.
 
+That means the repository itself stays under ARK's GitHub organisation, but you
+still make your edits, commits and pushes using your own personal GitHub
+account.
+
+### If someone needs GitHub access
+
+1. Ask a current maintainer who already has GitHub admin access for ARK.
+2. That maintainer should open the `arkeralites` organisation on GitHub and
+   invite the person's GitHub account.
+3. They must then make sure that account can access the `ARKWebsite`
+   repository, either through a GitHub team or by giving the account direct
+   repository access.
+4. The invited person must accept the invitation from their email or GitHub
+   notifications.
+5. After that, they can edit in the browser, create branches, open pull
+   requests, and, if they use Git locally, push from their own personal account.
+
 ### The loop you will always follow
 
 1. Go to `https://github.com/arkeralites/ARKWebsite`.
@@ -128,7 +145,7 @@ The block at the top between the `---` lines is the event's data:
 ```md
 ---
 title: "Onam 2027"
-date: "2027-09-12"
+date: "2027-09-13"
 venue: "Lura Bydelshus, Sandnes"
 category: "Festival"
 featured: true
@@ -333,6 +350,12 @@ Vercel project, find the last known good deployment, and use
 The project is hosted on **Vercel**. A change reaches the live site automatically
 after it is merged into `main`.
 
+In plain language: nobody uploads files to the website by hand. Once a pull
+request is merged, GitHub and Vercel do the rest automatically. Vercel builds a
+fresh copy of the site and replaces the live one when that build succeeds.
+Usually the only thing a routine maintainer needs to do is wait 1–2 minutes,
+refresh <https://kerala.no>, and confirm the change appears.
+
 There are two possible mechanisms, and **exactly one should be active**:
 
 - **GitHub Actions** — `.github/workflows/vercel-deploy.yml` deploys using
@@ -370,10 +393,20 @@ each placeholder with the real answer.
 |---|---|---|
 | GitHub organisation `arkeralites` | ARK | *TO CONFIRM — names* |
 | Vercel project | ARK | *TO CONFIRM — names* |
-| Domain `kerala.no` registrar | ARK | *TO CONFIRM — registrar name and account holder* |
+| Domain `kerala.no` registrar (`one.com`) | ARK | *TO CONFIRM — account holder and who can log in* |
 | Shared email `arkeralites@gmail.com` | ARK | *TO CONFIRM — names* |
 | Password manager / shared credentials | ARK | *TO CONFIRM — where it lives* |
 | Google Drive copy of these docs | ARK | *TO CONFIRM — folder link* |
+
+Whoever currently has GitHub organisation or repository admin access is also the
+person responsible for inviting new maintainers' GitHub accounts and removing
+access when someone leaves.
+
+Plain language: `one.com` is where ARK keeps the `kerala.no` domain registration
+and DNS settings. Vercel hosts the website itself, but `one.com` keeps control
+of the web address and points that address to the live site. Most routine
+content updates do not need `one.com` access, but yearly handover, renewal,
+login recovery, or DNS changes do.
 
 ### Access policy
 
