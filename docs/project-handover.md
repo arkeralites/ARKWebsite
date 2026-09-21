@@ -376,7 +376,9 @@ There are two possible mechanisms, and **exactly one should be active**:
 > - If GitHub Actions is the active path, contributors do **not** need their own
 >   Vercel access to publish content — only GitHub access.
 >
-> Details and the reason this setup exists are in `docs/deployment-handover.md`.
+> > Details and the reason this setup exists are in `docs/deployment-handover.md`.
+> > The one-time connection steps are in `docs/github-vercel-setup.md`.
+> > The quick secret lookup is in `docs/vercel-secrets-cheatsheet.md`.
 
 Note that `.github/workflows/ci.yml` (the checks) and
 `.github/workflows/vercel-deploy.yml` (the deploy) are different things. The

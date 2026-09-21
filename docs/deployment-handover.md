@@ -28,11 +28,27 @@ account after that account has been given access.
 The first one protects the site. The second one publishes it. Requiring the first
 to pass before merging is what keeps a broken change off kerala.no.
 
+## One-time setup guide
+
+If you need to recreate or audit the GitHub ↔ Vercel connection itself, read
+`docs/github-vercel-setup.md`.
+
+That file documents:
+
+- how the repository is prepared to deploy through GitHub Actions
+- where `VERCEL_TOKEN`, `VERCEL_ORG_ID`, and `VERCEL_PROJECT_ID` come from
+- how to verify whether Vercel Git integration is also enabled
+- how to avoid duplicate deployments
+
 ## The active production deployment path
 
 Production can be deployed either by **GitHub Actions** or by **Vercel's direct
 Git integration**. Exactly one should be enabled — if both are, every merge
 produces two deployments racing each other.
+
+This repository is already configured for the **GitHub Actions** path via
+`.github/workflows/vercel-deploy.yml`, but the live Vercel project must still be
+checked to confirm whether Vercel Git auto-deploy is enabled or disabled.
 
 > [!IMPORTANT]
 > **TO CONFIRM — the active path is: ..............................................**

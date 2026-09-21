@@ -181,6 +181,14 @@ every pull request.
 ## Deployment
 
 Merging to `main` publishes to production. Ownership, secrets, and the active
-deployment path are documented in `docs/deployment-handover.md`. If the
-deployment path changes, update that file and section 10 of
-`docs/project-handover.md` rather than expanding this README.
+deployment path are documented in `docs/deployment-handover.md`.
+
+If you need the one-time steps for connecting GitHub and Vercel, setting the
+`VERCEL_*` secrets, or verifying which production deployment path is active, use
+`docs/github-vercel-setup.md`.
+
+If you only need the fast handover answer for where those secrets are stored and
+where to recover the values, use `docs/vercel-secrets-cheatsheet.md`.
+
+If the deployment path changes, update that file, `docs/deployment-handover.md`,
+and section 10 of `docs/project-handover.md` rather than expanding this README.

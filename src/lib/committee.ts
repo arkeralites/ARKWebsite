@@ -10,20 +10,25 @@ export interface CommitteeMember {
   type: 'executive' | 'member' | 'deputy'
 }
 
+export const committeePageImage = {
+  src: '/images/committee.jpg',
+  alt: 'committee',
+} as const
+
 // Executive board — shown prominently at the top
 export const executiveMembers: CommitteeMember[] = [
-  { name: 'Suku Thomas', role: 'Styreleder', type: 'executive' },
-  { name: 'Jeena KB', role: 'Nesteleder', type: 'executive' }
+  { name: 'Geethu Chandran', role: 'Styreleder', type: 'executive' },
+  { name: 'Arun Kumar Pilangad', role: 'Nesteleder', type: 'executive' }
 ]
 
 // General committee members
 export const generalMembers: CommitteeMember[] = [
-  { name: 'Maju P. Jose', role: 'Committee Member', type: 'member' },
-  { name: 'Dipin Nirappil', role: 'Committee Member', type: 'member' },
-  { name: 'Jestin Jose', role: 'Committee Member', type: 'member' },
-  { name: 'Sandhya Rex', role: 'Committee Member', type: 'member' },
-  { name: 'Jithisha Nair', role: 'Committee Member', type: 'member' },
-  { name: 'Priya John', role: 'Committee Member', type: 'member' },
+  { name: 'Paul Jose Madappilly', role: 'Committee Member', type: 'member' },
+  { name: 'George Thekkan Jose', role: 'Committee Member', type: 'member' },
+  { name: 'Mahendra Menon', role: 'Committee Member', type: 'member' },
+  { name: 'Poornima GK', role: 'Committee Member', type: 'member' },
+  { name: 'Naglekshmi Perumal', role: 'Committee Member', type: 'member' },
+  { name: 'Bhoomija Dewangan', role: 'Committee Member', type: 'member' },
 ]
 
 // Committee terms are displayed as a year range and roll over automatically.

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { generatePageMetadata } from '@/lib/metadata'
 import {
+  committeePageImage,
   executiveMembers,
   generalMembers,
   getCommitteeTermLabel,
@@ -95,7 +97,7 @@ export default async function CommitteePage() {
     <main className="pt-16">
       {/* Page Hero */}
       <section className="page-hero px-4 text-center" aria-label={committee.aria.hero}>
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <span
             className="text-xs uppercase tracking-[0.2em] font-semibold"
             style={{ color: '#c8922a' }}
@@ -108,6 +110,24 @@ export default async function CommitteePage() {
           <p className="text-white/65 text-lg mt-4 leading-relaxed max-w-2xl mx-auto">
             {committee.heroText}
           </p>
+
+          <div className="mt-10 max-w-4xl mx-auto">
+            <div
+              className="relative overflow-hidden rounded-3xl border border-white/15 shadow-2xl"
+              style={{ backgroundColor: 'rgba(255,255,255,0.08)' }}
+            >
+              <div className="relative aspect-[16/9] w-full">
+                <Image
+                  src={committeePageImage.src}
+                  alt={committeePageImage.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1280px) 896px, (min-width: 768px) 80vw, 100vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
